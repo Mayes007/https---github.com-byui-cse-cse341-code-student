@@ -1,0 +1,546 @@
+{
+	"name": "git-commits",
+	"displayName": "Git Commits",
+	"description": "Adds list of last commits in source control tab",
+	"version": "4.2.0",
+	"publisher": "Exelord",
+	"repository": "https://github.com/Exelord/git-commits",
+	"license": "MIT",
+	"icon": "icon.png",
+	"bugs": {
+		"url": "https://github.com/Exelord/git-commits/issues"
+	},
+	"homepage": "https://github.com/Exelord/git-commits#readme",
+	"engines": {
+		"vscode": "^1.70.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"git",
+		"commit",
+		"history",
+		"revert",
+		"diff",
+		"commits",
+		"list",
+		"stash",
+		"stashes",
+		"remotes",
+		"atom",
+		"vscode"
+	],
+	"activationEvents": [
+		"onView:gitCommits.commits",
+		"onView:gitCommits.stashes",
+		"onView:gitCommits.remotes"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"views": {
+			"scm": [
+				{
+					"id": "gitCommits.commits",
+					"name": "Commits",
+					"when": "gitOpenRepositoryCount != 0",
+					"visibility": "visible"
+				},
+				{
+					"id": "gitCommits.stashes",
+					"name": "Stashes",
+					"when": "gitOpenRepositoryCount != 0",
+					"visibility": "collapsed"
+				},
+				{
+					"id": "gitCommits.worktrees",
+					"name": "Worktrees",
+					"when": "gitOpenRepositoryCount != 0",
+					"visibility": "collapsed"
+				},
+				{
+					"id": "gitCommits.remotes",
+					"name": "Remotes",
+					"when": "gitOpenRepositoryCount != 0",
+					"visibility": "collapsed"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "gitCommits.undoCommit",
+				"title": "Undo last commit",
+				"icon": "$(discard)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.copyCommitHash",
+				"title": "Copy commit hash",
+				"icon": "$(files)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.commits.viewAsTree",
+				"title": "View as tree",
+				"icon": "$(list-tree)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.commits.viewAsList",
+				"title": "View as list",
+				"icon": "$(list-flat)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.diffChangeWithHead",
+				"title": "Diff with current file",
+				"icon": "$(diff)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.reversedDiffChangeWithHead",
+				"title": "Diff with current file",
+				"icon": "$(diff)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.copyFilePath",
+				"title": "Copy file path",
+				"icon": "$(files)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.openCurrentFile",
+				"title": "Open current file",
+				"icon": "$(go-to-file)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.previewFile",
+				"title": "Preview changed file",
+				"icon": "$(file-symlink-file)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.revertCommit",
+				"title": "Revert commit",
+				"icon": "$(discard)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.revertChange",
+				"title": "Revert file",
+				"icon": "$(discard)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.stash",
+				"title": "Stash staged changes",
+				"icon": "$(archive)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.stashIncludeUntracked",
+				"title": "Stash all changes",
+				"icon": "$(package)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.stashPopLatest",
+				"title": "Apply and remove latest",
+				"icon": "$(discard)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.stashApplyLatest",
+				"title": "Apply latest",
+				"icon": "$(tasklist)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.stashPop",
+				"title": "Apply and remove",
+				"icon": "$(discard)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.stashApply",
+				"title": "Apply",
+				"icon": "$(tasklist)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.stashDrop",
+				"title": "Remove",
+				"icon": "$(trash)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.addRemote",
+				"title": "Add",
+				"icon": "$(add)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.removeRemote",
+				"title": "Remove",
+				"icon": "$(trash)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.pullFromRemote",
+				"title": "Pull",
+				"icon": "$(repo-pull)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.lockWorktree",
+				"title": "Lock",
+				"icon": "$(lock)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.unlockWorktree",
+				"title": "Unlock",
+				"icon": "$(unlock)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.moveWorktree",
+				"title": "Move",
+				"icon": "$(move)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.removeWorktree",
+				"title": "Remove",
+				"icon": "$(trash)",
+				"category": "Git Commits"
+			},
+			{
+				"command": "gitCommits.addWorktree",
+				"title": "Add",
+				"icon": "$(add)",
+				"category": "Git Commits"
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "gitCommits.undoCommit",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.copyCommitHash",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.commits.viewAsTree",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.commits.viewAsList",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.diffChangeWithHead",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.reversedDiffChangeWithHead",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.copyFilePath",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.openCurrentFile",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.previewFile",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.revertCommit",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.revertChange",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.stash",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.stashIncludeUntracked",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.stashPopLatest",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.stashApplyLatest",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.stashPop",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.stashApply",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.stashDrop",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.addRemote",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.removeRemote",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.pullFromRemote",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.lockWorktree",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.unlockWorktree",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.moveWorktree",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.removeWorktree",
+					"when": "false"
+				},
+				{
+					"command": "gitCommits.addWorktree",
+					"when": "false"
+				}
+			],
+			"view/title": [
+				{
+					"command": "gitCommits.undoCommit",
+					"when": "view == gitCommits.commits",
+					"group": "navigation@1"
+				},
+				{
+					"command": "gitCommits.commits.viewAsTree",
+					"when": "view == gitCommits.commits && !gitCommits.commits.settings.viewAsTree",
+					"group": "navigation@2"
+				},
+				{
+					"command": "gitCommits.commits.viewAsList",
+					"when": "view == gitCommits.commits && gitCommits.commits.settings.viewAsTree",
+					"group": "navigation@2"
+				},
+				{
+					"command": "gitCommits.stashPopLatest",
+					"when": "view == gitCommits.stashes",
+					"group": "navigation@4"
+				},
+				{
+					"command": "gitCommits.stashApplyLatest",
+					"when": "view == gitCommits.stashes",
+					"group": "navigation@3"
+				},
+				{
+					"command": "gitCommits.stash",
+					"when": "view == gitCommits.stashes",
+					"group": "navigation@1"
+				},
+				{
+					"command": "gitCommits.stashIncludeUntracked",
+					"when": "view == gitCommits.stashes",
+					"group": "navigation@2"
+				},
+				{
+					"command": "gitCommits.addRemote",
+					"when": "view == gitCommits.remotes",
+					"group": "navigation"
+				},
+				{
+					"command": "gitCommits.addWorktree",
+					"when": "view == gitCommits.worktrees",
+					"group": "navigation"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "gitCommits.revertCommit",
+					"when": "view == gitCommits.commits && viewItem == commitNode",
+					"group": "inline@1"
+				},
+				{
+					"command": "gitCommits.copyCommitHash",
+					"when": "view == gitCommits.commits && viewItem == commitNode",
+					"group": "inline@2"
+				},
+				{
+					"command": "gitCommits.diffChangeWithHead",
+					"when": "view == gitCommits.commits && viewItem == changeNode",
+					"group": "inline@1"
+				},
+				{
+					"command": "gitCommits.reversedDiffChangeWithHead",
+					"when": "view == gitCommits.stashes && viewItem == changeNode",
+					"group": "inline@1"
+				},
+				{
+					"command": "gitCommits.openCurrentFile",
+					"when": "view == gitCommits.commits && viewItem == changeNode",
+					"group": "inline@2"
+				},
+				{
+					"command": "gitCommits.openCurrentFile",
+					"when": "view == gitCommits.stashes && viewItem == changeNode",
+					"group": "inline@2"
+				},
+				{
+					"command": "gitCommits.previewFile",
+					"when": "view == gitCommits.commits && viewItem == changeNode",
+					"group": "inline@3"
+				},
+				{
+					"command": "gitCommits.previewFile",
+					"when": "view == gitCommits.stashes && viewItem == changeNode",
+					"group": "inline@3"
+				},
+				{
+					"command": "gitCommits.revertChange",
+					"when": "view == gitCommits.commits && viewItem == changeNode",
+					"group": "inline@4"
+				},
+				{
+					"command": "gitCommits.copyFilePath",
+					"when": "view == gitCommits.commits && viewItem == changeNode",
+					"group": "inline@5"
+				},
+				{
+					"command": "gitCommits.copyFilePath",
+					"when": "view == gitCommits.stashes && viewItem == changeNode",
+					"group": "inline@5"
+				},
+				{
+					"command": "gitCommits.stashApply",
+					"when": "view == gitCommits.stashes && viewItem == commitNode",
+					"group": "inline@1"
+				},
+				{
+					"command": "gitCommits.stashPop",
+					"when": "view == gitCommits.stashes && viewItem == commitNode",
+					"group": "inline@2"
+				},
+				{
+					"command": "gitCommits.stashDrop",
+					"when": "view == gitCommits.stashes && viewItem == commitNode",
+					"group": "inline@3"
+				},
+				{
+					"command": "gitCommits.removeRemote",
+					"when": "view == gitCommits.remotes",
+					"group": "inline@2"
+				},
+				{
+					"command": "gitCommits.pullFromRemote",
+					"when": "view == gitCommits.remotes",
+					"group": "inline@1"
+				},
+				{
+					"command": "gitCommits.moveWorktree",
+					"when": "view == gitCommits.worktrees && viewItem == worktreeNodeUnlocked",
+					"group": "inline@1"
+				},
+				{
+					"command": "gitCommits.lockWorktree",
+					"when": "view == gitCommits.worktrees && viewItem == worktreeNodeUnlocked",
+					"group": "inline@2"
+				},
+				{
+					"command": "gitCommits.unlockWorktree",
+					"when": "view == gitCommits.worktrees && viewItem == worktreeNodeLocked",
+					"group": "inline@2"
+				},
+				{
+					"command": "gitCommits.removeWorktree",
+					"when": "view == gitCommits.worktrees && viewItem == worktreeNodeUnlocked",
+					"group": "inline@3"
+				}
+			]
+		}
+	},
+	"extensionDependencies": [
+		"vscode.git"
+	],
+	"scripts": {
+		"vscode:prepublish": "npm run build",
+		"build": "vite build",
+		"launch": "vite build --minify=false",
+		"watch": "vite build --watch",
+		"lint": "eslint src --ext ts",
+		"pack": "vsce package",
+		"publish": "vsce publish",
+		"release": "release-it"
+	},
+	"devDependencies": {
+		"@types/node": "^18.15.11",
+		"@types/vscode": "^1.70.0",
+		"@typescript-eslint/eslint-plugin": "^5.59.0",
+		"@typescript-eslint/parser": "^5.59.0",
+		"eslint": "^8.38.0",
+		"release-it": "^15.10.1",
+		"typescript": "^5.0.4",
+		"vite": "^4.2.1",
+		"vsce": "^2.15.0"
+	},
+	"release-it": {
+		"git": {
+			"tagName": "v${version}",
+			"commitMessage": "v${version}"
+		},
+		"npm": {
+			"publish": false
+		},
+		"github": {
+			"release": true
+		},
+		"hooks": {
+			"before:release": [
+				"npm run lint",
+				"npm run build",
+				"npm run pack"
+			],
+			"after:release": "npm run publish"
+		}
+	},
+	"dependencies": {
+		"date-fns": "^2.29.3"
+	},
+	"__metadata": {
+		"id": "66ae5b51-0236-4fcc-9459-268543259448",
+		"publisherId": "9ecdee8c-a207-4f31-a31a-1937646f0e62",
+		"publisherDisplayName": "exelord",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1721949820081,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery",
+		"size": 57878
+	}
+}

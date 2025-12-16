@@ -1,0 +1,7 @@
+{
+  "version": "1.0.0",
+  "toolStencil": "import { i18n } from \"@alife/bc-i18n-helpers\";",
+  "fixStencil": "i18n.get(\"$1\")",
+  "projectLang": "en",
+  "outName": "venus_i18n_en"
+}

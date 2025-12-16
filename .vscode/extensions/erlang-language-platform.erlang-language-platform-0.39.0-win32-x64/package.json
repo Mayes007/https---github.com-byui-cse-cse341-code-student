@@ -1,0 +1,458 @@
+{
+	"name": "erlang-language-platform",
+	"description": "Erlang language server",
+	"author": "Meta Platforms, Inc",
+	"license": "Apache2",
+	"version": "0.39.0",
+	"icon": "images/elp-logo-color.png",
+	"homepage": "https://whatsapp.github.io/erlang-language-platform/",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/WhatsApp/erlang-language-platform"
+	},
+	"publisher": "erlang-language-platform",
+	"categories": [
+		"Debuggers",
+		"Formatters",
+		"Linters",
+		"Programming Languages",
+		"Snippets",
+		"Testing"
+	],
+	"keywords": [
+		"elp"
+	],
+	"engines": {
+		"vscode": "^1.75.0"
+	},
+	"activationEvents": [],
+	"main": "./client/out/extension",
+	"contributes": {
+		"languages": [
+			{
+				"id": "erlang",
+				"aliases": [
+					"Erlang"
+				],
+				"extensions": [
+					".erl",
+					".hrl",
+					".app.src",
+					".app",
+					".escript",
+					"rebar.config",
+					"rebar.lock",
+					"rebar.config.script",
+					"sys.config",
+					"sys.config.src",
+					"sys.ct.config",
+					"sys.shell.config",
+					".yrl",
+					".xrl"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "erlang",
+				"scopeName": "source.erlang",
+				"path": "./third-party/grammar/Erlang.plist"
+			}
+		],
+		"commands": [
+			{
+				"command": "elp.restartServer",
+				"title": "Restart server",
+				"category": "Erlang"
+			}
+		],
+		"debuggers": [
+			{
+				"type": "erlang-edb",
+				"label": "Erlang EDB",
+				"languages": [
+					"erlang"
+				],
+				"configurationSnippets": [
+					{
+						"label": "Launch rebar3 shell",
+						"description": "Launches rebar3 shell and connects it to the debugger",
+						"body": {
+							"name": "Launch rebar3 shell",
+							"type": "erlang-edb",
+							"request": "launch",
+							"runInTerminal": {
+								"kind": "integrated",
+								"cwd": "${workspaceFolder}",
+								"args": [
+									"rebar3",
+									"as",
+									"test",
+									"shell"
+								]
+							},
+							"config": {
+								"nameDomain": "shortnames"
+							}
+						}
+					},
+					{
+						"label": "Attach to Erlang node",
+						"description": "Attach to a node that must have been started with +D",
+						"body": {
+							"name": "Attach to node",
+							"type": "erlang-edb",
+							"request": "attach",
+							"config": {
+								"cwd": "${workspaceFolder}",
+								"node": "mynode@localhost"
+							}
+						}
+					}
+				],
+				"configurationAttributes": {
+					"attach": {
+						"required": [
+							"config"
+						],
+						"properties": {
+							"config": {
+								"type": "object",
+								"description": "Debugger configuration",
+								"required": [
+									"node",
+									"cwd"
+								],
+								"properties": {
+									"node": {
+										"type": "string",
+										"description": "The node to attach to."
+									},
+									"cookie": {
+										"type": "string",
+										"description": "Connection cookie."
+									},
+									"cwd": {
+										"type": "string",
+										"description": "Path to prepend to any relative source file found in beam files. Typically the workspace folder."
+									},
+									"stripSourcePrefix": {
+										"type": "string",
+										"description": "When source paths in beam files are relative, this can be used to strip a prefix so that they match the filename in the current workspace."
+									}
+								}
+							}
+						}
+					},
+					"launch": {
+						"required": [
+							"runInTerminal",
+							"config"
+						],
+						"properties": {
+							"runInTerminal": {
+								"type": "object",
+								"description": "The RunInTerminal DAP command to use",
+								"required": [
+									"args",
+									"cwd"
+								],
+								"properties": {
+									"args": {
+										"type": "array",
+										"description": "The command to launch and all its arguments"
+									},
+									"cwd": {
+										"type": "string",
+										"description": "Working directory for the node to launch"
+									},
+									"env": {
+										"type": "object",
+										"description": "Environment key-value pairs that are added to or removed from the default environment."
+									},
+									"kind": {
+										"type": "string",
+										"description": "Use an integrated or external terminal. Possible values: `integrated` (default) or `external`."
+									},
+									"argsCanBeInterpretedByShell": {
+										"type": "boolean",
+										"description": "Set to true if the args need to have environment variables expanded, etc. Default: false."
+									}
+								}
+							},
+							"config": {
+								"type": "object",
+								"description": "Debugger configuration",
+								"required": [
+									"nameDomain"
+								],
+								"properties": {
+									"nameDomain": {
+										"type": "string",
+										"description": "Should the debugger use shortnames or longnames."
+									},
+									"nodeInitCodeInEnvVar": {
+										"type": "string",
+										"description": "If given, the initialization code for the node will be put in the given environment variable, which should then be mentioned in the `args`."
+									},
+									"stripSourcePrefix": {
+										"type": "string",
+										"description": "When source paths in beam files are relative, this can be used to strip a prefix so that they match the filename in the current workspace."
+									},
+									"timeout": {
+										"type": "number",
+										"description": "How long, in seconds, the debugger will wait for the new node to connect to it. Defaults to 60."
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		],
+		"breakpoints": [
+			{
+				"language": "erlang"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Erlang Language Platform",
+			"properties": {
+				"erlang-elp.trace.server": {
+					"scope": "window",
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
+					],
+					"default": "off",
+					"description": "Traces the communication between VS Code and the Erlang language server."
+				},
+				"elpClient.serverPath": {
+					"type": "string",
+					"description": "The path to the ELP executable. If empty, uses the binary included in the extension",
+					"default": ""
+				},
+				"elpClient.serverArgs": {
+					"type": "string",
+					"description": "The arguments to invoke the language server with",
+					"default": "server"
+				},
+				"elp.buck.query.useBxl.enable": {
+					"default": false,
+					"markdownDescription": "Use BXL to query for buck project model.",
+					"type": "boolean"
+				},
+				"elp.diagnostics.disabled": {
+					"default": [],
+					"items": {
+						"type": "string"
+					},
+					"markdownDescription": "List of ELP diagnostics to disable.",
+					"type": "array",
+					"uniqueItems": true
+				},
+				"elp.diagnostics.enableExperimental": {
+					"default": false,
+					"markdownDescription": "Whether to show experimental ELP diagnostics that might\nhave more false positives than usual.",
+					"type": "boolean"
+				},
+				"elp.diagnostics.enableOtp": {
+					"default": false,
+					"markdownDescription": "Whether to report diagnostics for OTP files.",
+					"type": "boolean"
+				},
+				"elp.diagnostics.onSave.enable": {
+					"default": false,
+					"markdownDescription": "Update native diagnostics only when the file is saved.",
+					"type": "boolean"
+				},
+				"elp.edoc.enable": {
+					"default": false,
+					"markdownDescription": "Whether to report Edoc diagnostics.",
+					"type": "boolean"
+				},
+				"elp.eqwalizer.all": {
+					"default": false,
+					"markdownDescription": "Whether to report Eqwalizer diagnostics for the whole project and not only for opened files.",
+					"type": "boolean"
+				},
+				"elp.eqwalizer.chunkSize": {
+					"default": 100,
+					"markdownDescription": "Chunk size to use for project-wide eqwalization.",
+					"minimum": 0,
+					"type": "integer"
+				},
+				"elp.eqwalizer.maxTasks": {
+					"default": 32,
+					"markdownDescription": "Maximum number of tasks to run in parallel for project-wide eqwalization.",
+					"minimum": 0,
+					"type": "integer"
+				},
+				"elp.highlightDynamic.enable": {
+					"default": false,
+					"markdownDescription": "If enabled, highlight variables with type `dynamic()` when Eqwalizer results are available.",
+					"type": "boolean"
+				},
+				"elp.hoverActions.docLinks.enable": {
+					"default": false,
+					"markdownDescription": "Whether to show Hover Actions of type 'docs'. Only applies when\n`#elp.hoverActions.enable#` is set.",
+					"type": "boolean"
+				},
+				"elp.hoverActions.enable": {
+					"default": false,
+					"markdownDescription": "Whether to show Hover Actions.",
+					"type": "boolean"
+				},
+				"elp.inlayHints.parameterHints.enable": {
+					"default": true,
+					"markdownDescription": "Whether to show function parameter name inlay hints at the call\nsite.",
+					"type": "boolean"
+				},
+				"elp.lens.debug.enable": {
+					"default": false,
+					"markdownDescription": "Whether to show the `Debug` lenses. Only applies when\n`#elp.lens.enable#` is set.",
+					"type": "boolean"
+				},
+				"elp.lens.enable": {
+					"default": true,
+					"markdownDescription": "Whether to show Code Lenses in Erlang files.",
+					"type": "boolean"
+				},
+				"elp.lens.links.enable": {
+					"default": false,
+					"markdownDescription": "Whether to show the `Link` lenses. Only applies when\n`#elp.lens.enable#` is set.",
+					"type": "boolean"
+				},
+				"elp.lens.run.coverage.enable": {
+					"default": true,
+					"markdownDescription": "Display code coverage information when running tests via the\nCode Lenses. Only applies when `#elp.lens.enabled` and\n`#elp.lens.run.enable#` are set.",
+					"type": "boolean"
+				},
+				"elp.lens.run.enable": {
+					"default": true,
+					"markdownDescription": "Whether to show the `Run` lenses. Only applies when\n`#elp.lens.enable#` is set.",
+					"type": "boolean"
+				},
+				"elp.lens.run.interactive.enable": {
+					"default": false,
+					"markdownDescription": "Whether to show the `Run Interactive` lenses. Only applies when\n`#elp.lens.enable#` is set.",
+					"type": "boolean"
+				},
+				"elp.log": {
+					"default": "error",
+					"markdownDescription": "Configure LSP-based logging using env_logger syntax.",
+					"type": "string"
+				},
+				"elp.signatureHelp.enable": {
+					"default": true,
+					"markdownDescription": "Whether to show Signature Help.",
+					"type": "boolean"
+				},
+				"elp.typesOnHover.enable": {
+					"default": false,
+					"markdownDescription": "Display types when hovering over expressions.",
+					"type": "boolean"
+				},
+				"erlangDap.command": {
+					"type": "string",
+					"description": "Custom command to invoke the DAP debugger."
+				},
+				"erlangDap.erlangInstallationPath": {
+					"type": "string",
+					"markdownDescription": "Custom path for Erlang when starting the DAP adapter. It should point to a directory with `erl`, `escript` and other standard erlang executables.",
+					"default": ""
+				}
+			}
+		},
+		"configurationDefaults": {
+			"editor.tokenColorCustomizations": {
+				"textMateRules": [
+					{
+						"scope": "meta.embedded.block.markdown",
+						"settings": {
+							"foreground": "#6A9955"
+						}
+					}
+				]
+			}
+		},
+		"semanticTokenTypes": [],
+		"semanticTokenModifiers": [
+			{
+				"id": "bound",
+				"description": "Style for bound variables in patterns"
+			},
+			{
+				"id": "exported_function",
+				"description": "Style for exported function declaration names"
+			},
+			{
+				"id": "exported_type",
+				"description": "Style for exported types"
+			},
+			{
+				"id": "deprecated_function",
+				"description": "Style for deprecated function declaration names"
+			},
+			{
+				"id": "type_dynamic",
+				"description": "Style for Eqwalizer dynamic() type variables"
+			}
+		],
+		"semanticTokenScopes": [
+			{
+				"language": "erlang",
+				"scopes": {
+					"function": [
+						"entity.name.function.erlang"
+					],
+					"variable": [
+						"variable.other.erlang"
+					],
+					"*.bound": [
+						"markup.underline"
+					],
+					"*.exported_function": [
+						"markup.underline"
+					],
+					"*.exported_type": [
+						"markup.underline"
+					],
+					"*.deprecated_function": [
+						"markup.strikethrough"
+					],
+					"*.type_dynamic": [
+						"markup.bold"
+					]
+				}
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -b",
+		"watch": "tsc -b -w",
+		"lint": "eslint ./client/src --ext .ts,.tsx",
+		"postinstall": "cd client && npm install && cd ..",
+		"test": "sh ./scripts/e2e.sh",
+		"package": "vsce package -o erlang-language-platform.vsix"
+	},
+	"devDependencies": {
+		"@types/mocha": "^9.1.0",
+		"@types/node": "^16.11.7",
+		"@typescript-eslint/eslint-plugin": "^5.54.0",
+		"@typescript-eslint/parser": "^5.54.0",
+		"eslint": "^8.35.0",
+		"mocha": "^11.0.1",
+		"typescript": "^5.0.2"
+	},
+	"__metadata": {
+		"installedTimestamp": 1758036561898,
+		"targetPlatform": "win32-x64",
+		"size": 70879263
+	}
+}

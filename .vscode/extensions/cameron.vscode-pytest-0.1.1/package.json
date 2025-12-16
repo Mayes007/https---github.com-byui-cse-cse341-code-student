@@ -1,0 +1,77 @@
+{
+	"name": "vscode-pytest",
+	"displayName": "Pytest IntelliSense",
+	"description": "Provides autocompletion for pytest fixtures in VS Code.",
+	"version": "0.1.1",
+	"publisher": "Cameron",
+	"engines": {
+		"vscode": "^1.28.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:python"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Pytest configuration",
+			"properties": {
+				"pytest.command": {
+					"type": [
+						"string",
+						"array"
+					],
+					"default": "pipenv run pytest",
+					"description": "Command to run pytest"
+				}
+			}
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cameronmaske/pytest-vscode.git"
+	},
+	"bugs": {
+		"url": "https://github.com/cameronmaske/pytest-vscode/issues"
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test",
+		"tdd": "./node_modules/ts-mocha/bin/ts-mocha --ui tdd -w src/**/*.test.ts"
+	},
+	"devDependencies": {
+		"@types/node": "^8.10.25",
+		"chai": "^4.2.0",
+		"jest": "^23.6.0",
+		"ts-jest": "^23.10.4",
+		"ts-node": "^7.0.1",
+		"tslint": "^5.8.0",
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.21"
+	},
+	"dependencies": {
+		"@types/chai": "^4.1.6",
+		"@types/mocha": "^5.2.5",
+		"merge": ">=1.2.1",
+		"ts-mocha": "^2.0.0"
+	},
+	"__metadata": {
+		"id": "88ee4e73-798e-4275-b583-6ee3a3b4e97e",
+		"publisherId": "00935ca6-4edd-4b6b-a007-5792d43ef021",
+		"publisherDisplayName": "Cameron Maske",
+		"targetPlatform": "undefined",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1717299844975,
+		"pinned": false,
+		"source": "gallery",
+		"size": 6161367
+	}
+}

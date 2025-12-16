@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GlobalyzerResults clientVersion="1.0.0" projectName="cn-panda.panda-logistics" basepath="/Users/linxi/work/panda-logistics" companyName="Alibaba" endDate="2022-01-10">
+  <Scan scanName="javascript_scan" ruleSetName="javascript-rule" language="javascript" usedLocalRuleset="false" usedMachineLearning="false" lastScanDate="2022-01-10 15:56:28" filecount="1" linecount="94" total="19" active="2" invalid="0" ignore="0" resolved="0" todo="0" filtered="17" dfp="0">
+    <ScanSummary type="Embedded Strings" status="active" priority="all" prediction="all" count="2" predicted="2"/>
+    <ScanSummary type="Embedded Strings" status="invalid" count="0"/>
+    <ScanSummary type="Embedded Strings" status="ignore" count="0"/>
+    <ScanSummary type="Embedded Strings" status="resolved" count="0"/>
+    <ScanSummary type="Embedded Strings" status="todo" count="0"/>
+    <ScanSummary type="Embedded Strings" status="filtered" count="17"/>
+    <ScanSummary type="Embedded Strings" status="dfp" count="0"/>
+    <ScanResults type="Embedded Strings" status="active" priority="all" prediction="all" count="2" predicted="2">
+      <result file="src/component/noResult/index.jsx" linenum="31" prediction="-" reason="String Literal" priority="1" help="" description="Do not filter CJK string" startpos="21" endpos="27">
+        <issue>'term'</issue>
+        <line>className={'term'}</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="87" prediction="-" reason="HTML Chardata" priority="1" help="" description="Do not filter CJK string" startpos="9" endpos="14">
+        <issue>粉色爆米花</issue>
+        <line>&lt;p&gt;粉色爆米花&lt;/p&gt;</line>
+      </result>
+    </ScanResults>
+    <ScanResults type="Embedded Strings" status="invalid" count="0"/>
+    <ScanResults type="Embedded Strings" status="ignore" count="0"/>
+    <ScanResults type="Embedded Strings" status="resolved" count="0"/>
+    <ScanResults type="Embedded Strings" status="todo" count="0"/>
+    <ScanResults type="Embedded Strings" status="filtered" count="17">
+      <result file="src/component/noResult/index.jsx" linenum="17" prediction="Negative" reason="AdditiveExpressionContext" priority="1" help="" description="Do not filter CJK string" startpos="26" endpos="64">
+        <issue>'?pageIndex=0&amp;pageSize=20&amp;searchText='</issue>
+        <line>apiMap.searchList + '?pageIndex=0&amp;pageSize=20&amp;searchText=' + keyword;</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="20" prediction="Negative" reason="Match string method filter: (?i)log|error|warn|trace|info|debug|debuglog" priority="1" help="" description="Do not filter CJK string" startpos="20" endpos="28">
+        <issue>'res =='</issue>
+        <line>console.log('res ==', res);</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="42" prediction="Negative" reason="Match string content filter: ^[$&amp;+,:;=\\?@#|/'&lt;&gt;.^*()%!-]" priority="1" help="" description="Do not filter CJK string" startpos="17" endpos="41">
+        <issue>`/term/${each.textCode}`</issue>
+        <line>history.push(`/term/${each.textCode}`);</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="46" prediction="Negative" reason="Normal HTML attribute value" priority="1" help="" description="Do not filter CJK string" startpos="19" endpos="52">
+        <issue>"no-result-page-wrap common-page"</issue>
+        <line>&lt;div className="no-result-page-wrap common-page"&gt;</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="47" prediction="Negative" reason="Match string content filter: \A\s*[^\s-_]*([-_][^\s-_]*)+\s*\Z" priority="1" help="" description="Do not filter CJK string" startpos="22" endpos="36">
+        <issue>'content-wrap'</issue>
+        <line>&lt;div className={'content-wrap'}&gt;</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="49" prediction="Negative" reason="Match string content filter: (?i)\A[a-z]*[0-9]+[a-z]*\Z" priority="1" help="" description="Do not filter CJK string" startpos="22" endpos="30">
+        <issue>'label1'</issue>
+        <line>&lt;p className={'label1'}&gt;</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="51" prediction="Negative" reason="Match string method filter: ^get" priority="1" help="" description="Do not filter CJK string" startpos="29" endpos="50">
+        <issue>'SorryNotFound.other'</issue>
+        <line>{$i18n.get({ id: 'SorryNotFound.other', dm: '很抱歉～没有找到“' })}</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="51" prediction="Negative" reason="Match string method filter: ^get" priority="1" help="" description="Do not filter CJK string" startpos="56" endpos="67">
+        <issue>'很抱歉～没有找到“'</issue>
+        <line>{$i18n.get({ id: 'SorryNotFound.other', dm: '很抱歉～没有找到“' })}</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="55" prediction="Negative" reason="Match string method filter: ^get" priority="1" help="" description="Do not filter CJK string" startpos="29" endpos="57">
+        <issue>'”DSSJG.SearchResults.other'</issue>
+        <line>{$i18n.get({ id: '”DSSJG.SearchResults.other', dm: '”的搜索结果' })}</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="55" prediction="Negative" reason="Match string method filter: ^get" priority="1" help="" description="Do not filter CJK string" startpos="63" endpos="71">
+        <issue>'”的搜索结果'</issue>
+        <line>{$i18n.get({ id: '”DSSJG.SearchResults.other', dm: '”的搜索结果' })}</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="59" prediction="Negative" reason="Match string content filter: (?i)\A[a-z]*[0-9]+[a-z]*\Z" priority="1" help="" description="Do not filter CJK string" startpos="24" endpos="32">
+        <issue>'label2'</issue>
+        <line>&lt;p className={'label2'}&gt;</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="62" prediction="Negative" reason="Match string method filter: ^get" priority="1" help="" description="Do not filter CJK string" startpos="20" endpos="53">
+        <issue>'TrySearchingForTheseWords.other'</issue>
+        <line>id: 'TrySearchingForTheseWords.other',</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="63" prediction="Negative" reason="Match string method filter: ^get" priority="1" help="" description="Do not filter CJK string" startpos="20" endpos="29">
+        <issue>'试试搜索这些词'</issue>
+        <line>dm: '试试搜索这些词',</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="72" prediction="Negative" reason="Match string content filter: (?i)\A[a-z]*[0-9]+[a-z]*\Z" priority="1" help="" description="Do not filter CJK string" startpos="22" endpos="30">
+        <issue>'label3'</issue>
+        <line>&lt;p className={'label3'}&gt;</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="74" prediction="Negative" reason="Match string method filter: ^get" priority="1" help="" description="Do not filter CJK string" startpos="16" endpos="57">
+        <issue>'YouCanAlsoTryOtherWords_304280811.other'</issue>
+        <line>id: 'YouCanAlsoTryOtherWords_304280811.other',</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="76" prediction="Negative" reason="Match string method filter: ^get" priority="1" help="" description="Do not filter CJK string" startpos="14" endpos="52">
+        <issue>'您还可以尝试其他词进行试试，或通过钉钉扫码反馈将词提交小二翻译并添加翻译'</issue>
+        <line>'您还可以尝试其他词进行试试，或通过钉钉扫码反馈将词提交小二翻译并添加翻译',</line>
+      </result>
+      <result file="src/component/noResult/index.jsx" linenum="81" prediction="Negative" reason="Normal HTML attribute value" priority="1" help="" description="Do not filter CJK string" startpos="16" endpos="111">
+        <issue>"https://img.alicdn.com/imgextra/i3/O1CN01y6gZEN26xvufSNoq6_!!6000000007729-55-tps-140-140.svg"</issue>
+        <line>src="https://img.alicdn.com/imgextra/i3/O1CN01y6gZEN26xvufSNoq6_!!6000000007729-55-tps-140-140.svg"</line>
+      </result>
+    </ScanResults>
+    <ScanResults type="Embedded Strings" status="dfp" count="0"/>
+  </Scan>
+</GlobalyzerResults>

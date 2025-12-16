@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+		<Metadata>
+			<Identity Language="en-US" Id="Ionide-fsharp" Version="7.29.0" Publisher="Ionide" />
+			<DisplayName>Ionide for F#</DisplayName>
+			<Description xml:space="preserve">F# Language Support, powered by FsAutoComplete</Description>
+			<Tags>snippet,keybindings,json,fsharp,F,FSharp,__ext_fs,__ext_fsx,__ext_fsi,msbuild,__ext_fsproj,__ext_fsproj.user,__ext_DirectoryBuild.props,__ext_DirectoryBuild.targets,__ext_DirectorySolution.props,__ext_DirectorySolution.targets</Tags>
+			<Categories>Linters,Programming Languages,Snippets</Categories>
+			<GalleryFlags>Public</GalleryFlags>
+			<Badges><Badge Link="https://opencollective.com/ionide" ImgUri="https://img.shields.io/opencollective/backers/ionide.svg?color=blue&amp;style=for-the-badge" Description="Open Collective Backers" />
+<Badge Link="https://opencollective.com/ionide" ImgUri="https://img.shields.io/opencollective/sponsors/ionide.svg?color=Blue&amp;style=for-the-badge" Description="Open Collective Sponsors" /></Badges>
+			<Properties>
+				<Property Id="Microsoft.VisualStudio.Code.Engine" Value="^0.10.0" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionDependencies" Value="" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionPack" Value="ms-dotnettools.csharp,anysphere.csharp,muhammad-sammy.csharp" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionKind" Value="workspace" />
+				<Property Id="Microsoft.VisualStudio.Code.LocalizedLanguages" Value="" />
+				<Property Id="Microsoft.VisualStudio.Code.EnabledApiProposals" Value="" />
+				
+				<Property Id="Microsoft.VisualStudio.Code.ExecutesCode" Value="true" />
+				
+				<Property Id="Microsoft.VisualStudio.Services.Links.Source" Value="https://github.com/ionide/ionide-vscode-fsharp.git" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.Getstarted" Value="https://github.com/ionide/ionide-vscode-fsharp.git" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.GitHub" Value="https://github.com/ionide/ionide-vscode-fsharp.git" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.Support" Value="https://github.com/ionide/ionide-vscode-fsharp/issues" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.Learn" Value="http://ionide.io" />
+				
+				
+				<Property Id="Microsoft.VisualStudio.Services.GitHubFlavoredMarkdown" Value="true" />
+				<Property Id="Microsoft.VisualStudio.Services.Content.Pricing" Value="Free"/>
+
+				
+				
+			</Properties>
+			<License>extension/LICENSE.md</License>
+			<Icon>extension/images/logo.png</Icon>
+		</Metadata>
+		<Installation>
+			<InstallationTarget Id="Microsoft.VisualStudio.Code"/>
+		</Installation>
+		<Dependencies/>
+		<Assets>
+			<Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true" />
+			<Asset Type="Microsoft.VisualStudio.Services.Content.Details" Path="extension/readme.md" Addressable="true" />
+<Asset Type="Microsoft.VisualStudio.Services.Content.Changelog" Path="extension/changelog.md" Addressable="true" />
+<Asset Type="Microsoft.VisualStudio.Services.Content.License" Path="extension/LICENSE.md" Addressable="true" />
+<Asset Type="Microsoft.VisualStudio.Services.Icons.Default" Path="extension/images/logo.png" Addressable="true" />
+		</Assets>
+	</PackageManifest>

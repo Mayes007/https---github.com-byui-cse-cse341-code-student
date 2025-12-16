@@ -1,0 +1,864 @@
+<?xml version='1.0' encoding='utf-8'?>
+<export domain='com.lingoport.server.Ruleset' version='2'>
+  <ruleset name='javascript-awesome-ext.venus' language='javascript' enabled='true' shared='true' parent='javascript-ext.venus' pid='174' id='186'>
+    <stringRetentionPattern name='ali-ext: String like sentences' pattern='\A.*[A-Z][a-z]*\d*[\.,\?!]?\s+[a-z]*.*[\.,\?!]\Z' priority='1' description='ali-ext: String like sentences' category='ali-ext' enabled='false' />
+    <stringRetentionPattern name='Date Format - M/dd/yy' pattern='M/dd/yy' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='HTML alt' pattern='(?i)\balt\s*=[&apos;"\\\s]*[a-z]' priority='1' description='Do not filter HTML alt strings.' enabled='false' />
+    <stringRetentionPattern name='Date Format - hours:minutes' pattern='hh:mm\s*(dd\s*MM\s*yyyy)?' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='Date Format - dd.MM.yyyy' pattern='dd\.MM\.yyyy' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='Date Format - dddd dd' pattern='dddd\s*dd' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='Date Format - mm-dd-yyyy' pattern='mm-dd-yyyy' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='Date Format - 6AM or 7:00 PM' pattern='(?i)[0-9]\s*(am|pm)\b' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='HTML value' pattern='(?i)\bvalue\s*=[&apos;"\\\s]*[a-z]' priority='1' description='Do not filter HTML value strings.' enabled='false' />
+    <stringRetentionPattern name='Date Format - MMMM dd yyyy' pattern='MMM(M)?\s*d(,|d)\s*yyyy' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='Date Format - Day, day month year' pattern='D,\s*dd?\s*M\s*yy?' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='Date Format - dd/MM/yy' pattern='dd/MM/yy(yy\s*HH:mm)?' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='HTML title' pattern='(?i)\btitle\s*=[&apos;"\\\s]*[a-z]' priority='1' description='Do not filter HTML title strings.' enabled='false' />
+    <stringRetentionPattern name='Date Format - year:month:day' pattern='yyyy:MM:dd' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='HTML title' pattern='(?i)\btext\s*=[&apos;"\\\s]*[a-z]' priority='1' description='Do not filter HTML text strings.' enabled='false' />
+    <stringMethodPattern name='showModal' pattern='showModal' priority='1' description='showModal may displayed on frontend' enabled='true' />
+    <stringMethodPattern name='confirm' pattern='(?i)confirm' priority='1' description='Detect strings passed to this method' enabled='true' />
+    <stringOperandPattern name='Placeholder' pattern='placeholder' priority='1' description='Retain placeholder attribute strings' enabled='true' />
+    <stringOperandPattern name='title' pattern='title' priority='1' description='Retain title attribute strings' enabled='true' />
+    <generalPattern name='Font name' pattern='(?i)\b(verdana|arial|timesroman|tahoma|ms\s\w+|(sans-)?serif)\b' priority='3' description='Detect hardcoded font names. Should be locale-dependent. Need to look for specific fonts because there are many different ways that font names are used.' enabled='false' />
+    <fileExtensionFilter name='i18n' pattern='**/i18n/**' patternType='2' category='ali-ext' enabled='true' />
+    <fileExtensionFilter name='ali-ext: filter test demo file' pattern='(h|H)sfs?|HSFS?|(t|T)ddls?|TDDLS?|(d|D)iamonds?|DIAMONDS?|(t|T)airs?|TAIRS?|(p|P)ages?.(vm|html?)|(i|I)gnored.(vm|html?)|(s|S)ecurity.(vm|html?)|(e|E)rror.(vm|html?)|(i|I)ndex.(vm|html?)|(d|D)efault.(vm|html?)|(f|F)ooter.(vm|html?)|(s|S)ubmit.(vm|html?)' patternType='1' category='ali-ext' enabled='true' />
+    <fileExtensionFilter name='node_modules' pattern='node_modules' patternType='1' description='filter out node_modules' enabled='false' />
+    <fileExtensionFilter name='java' pattern='**/java.ts' patternType='2' description='dsl specification file' enabled='true' />
+    <fileExtensionFilter name='ali ext: filter eslintrc.js' pattern='**/.eslintrc.js' patternType='2' description='ali ext: filter eslintrc.js' category='ali-ext' enabled='true' />
+    <fileExtensionFilter name='i18nResource' pattern='**/i18nResource/**' patternType='2' category='ali-ext' enabled='true' />
+    <stringLineFilter name='Export Statements' pattern='^export\s+' description='Filters export statements.' category='ali-ext-retention' enabled='true' />
+    <stringLineFilter name='Import Statements' pattern='^import\s+' description='Filters import statements.' category='ali-ext-retention' enabled='false' />
+    <stringLineFilter name='ali ext: i18n filter' pattern='(i18n|I18N|i18N|I18n|mcms|MCMS|Mcms|locale|Locale|LOCALE)+.+\|\|.+' description='ali ext: i18n filter' category='ali-ext' enabled='true' />
+    <stringLineFilter name='intl filter' pattern='intl\.get' description='Filter intl default literals' enabled='true' />
+    <stringLineFilter name='ali ext : filer div className tag' pattern='(className=){1}' description='ali ext : filer div className tag' category='ali-ext-retention' enabled='false' />
+    <stringLiteralFilter name='ali ext: i18n filter' pattern='(i18n|I18N|i18N|I18n|mcms|MCMS|Mcms|locale|Locale|LOCALE)+' description='ali ext: i18n filter' category='ali-ext-retention' enabled='false' />
+    <stringLiteralFilter name='Ali18n: punctuations' pattern='^[$&amp;+,:;=\\?@#|/&apos;&lt;&gt;.^*()%!-]' category='ali-ext' enabled='true' />
+    <stringMethodFilter name='choose' pattern='^choose' description='choose should be filtered' enabled='true' />
+    <stringMethodFilter name='on' pattern='on' description='On event do action' enabled='false' />
+    <stringMethodFilter name='startsWith' pattern='startsWith' description='startsWith method' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='show' pattern='^show' description='Filters parameters passed to show. &apos;show&apos; is a jQuery method.' category='jQuery' helpPage='https://api.jqueryui.com/show/' enabled='true' />
+    <stringMethodFilter name='include' pattern='^include' description='Filter include methods' enabled='true' />
+    <stringMethodFilter name='init' pattern='init' description='init method' category='ReactJS' enabled='true' />
+    <stringMethodFilter name='hide' pattern='^hide$' description='Filter only the first string passed to hide. Hide is a jQuery method.' category='jQuery' helpPage='https://api.jqueryui.com/hide/' enabled='true' />
+    <stringMethodFilter name='show' pattern='show' description='Filters parameters passed to show. &apos;show&apos; is a jQuery method.' category='jQuery' helpPage='https://api.jqueryui.com/show/' enabled='false' />
+    <stringMethodFilter name='replace' pattern='replace' description='jQuery HTML/CSS Method. Replaces html elements with given html element.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='avg' pattern='^avg' description='avg method should be filtered' enabled='true' />
+    <stringMethodFilter name='class' pattern='(?i)class' description='filter out class methods' enabled='true' />
+    <stringMethodFilter name='on' pattern='^on' description='On event do action' enabled='true' />
+    <stringMethodFilter name='handle' pattern='^handle' description='Filter handle methods' enabled='true' />
+    <stringMethodFilter name='import' pattern='import' description='import method' enabled='true' />
+    <stringMethodFilter name='get' pattern='^get' description='Filter get literals' enabled='true' />
+    <stringMethodFilter name='hide' pattern='hide' description='Filter only the first string passed to hide. Hide is a jQuery method.' category='jQuery' helpPage='https://api.jqueryui.com/hide/' enabled='false' />
+    <stringOperandFilter name='action' pattern='(?i)action' description='Filters action strings' enabled='false' />
+    <stringOperandFilter name='whiteSpace' pattern='whiteSpace' description='Filters whitespace strings' enabled='true' />
+    <stringOperandFilter name='dimension' pattern='dimension' description='Filters dimension strings' enabled='true' />
+    <stringOperandFilter name='page' pattern='page' description='Filters page strings' enabled='true' />
+    <stringOperandFilter name='currency' pattern='currency' description='Filters currency strings' enabled='true' />
+    <stringOperandFilter name='color' pattern='(?i)color' description='Filters colors; color != "transparent"' enabled='true' />
+    <stringOperandFilter name='country' pattern='country' description='Filters country strings' enabled='true' />
+    <stringOperandFilter name='theme' pattern='theme' description='Filters theme strings' enabled='true' />
+    <stringOperandFilter name='margin' pattern='margin' description='Filters margin strings' enabled='true' />
+    <stringOperandFilter name='display' pattern='display' description='Filters display strings' enabled='true' />
+    <stringOperandFilter name='scene' pattern='scene' description='Filters scene strings' enabled='true' />
+    <stringOperandFilter name='spm' pattern='spm' description='spm means statistical parametric mapping' enabled='true' />
+    <stringOperandFilter name='flex' pattern='flex' description='Filters flex strings' enabled='true' />
+    <stringOperandFilter name='cursor' pattern='cursor' description='Filters cursor strings' enabled='true' />
+    <stringOperandFilter name='index' pattern='(?i)\w*index' description='Assume indices are not displayed in UI' enabled='true' />
+    <stringOperandFilter name='defaultValue' pattern='defaultValue' description='Filters defaultValue strings' enabled='true' />
+    <stringOperandFilter name='icon' pattern='icon' description='Filters icon strings' enabled='true' />
+    <stringOperandFilter name='font' pattern='font' description='Filters font strings' enabled='true' />
+    <stringOperandFilter name='group' pattern='group' description='Filters group strings' enabled='true' />
+    <stringOperandFilter name='align' pattern='align' description='Filters align strings' enabled='true' />
+    <stringOperandFilter name='size' pattern='size' description='Filters size strings' enabled='true' />
+    <stringOperandFilter name='Style' pattern='(?i)\w*style' description='Filter style strings' enabled='true' />
+    <stringOperandFilter name='textOverflow' pattern='textOverflow' description='textOverflow will not displayed on frontend' enabled='true' />
+    <stringOperandFilter name='category' pattern='category' description='Filters category strings' enabled='true' />
+    <stringOperandFilter name='version' pattern='(?i)version' description='version may not displayed on frontend' enabled='true' />
+    <stringOperandFilter name='members' pattern='members' description='Filters members strings' enabled='true' />
+    <stringOperandFilter name='token' pattern='token' description='Filters token strings' enabled='true' />
+    <stringOperandFilter name='orderBy' pattern='(?i)orderBy' description='Filters orderBy strings' enabled='true' />
+    <stringOperandFilter name='local' pattern='local' description='Filters local strings' enabled='true' />
+    <stringOperandFilter name='color' pattern='color' description='Filters colors; color != "transparent"' enabled='false' />
+    <stringOperandFilter name='language' pattern='language' description='Filters language strings' enabled='true' />
+    <stringOperandFilter name='from' pattern='from' description='Filters from strings' enabled='true' />
+    <stringOperandFilter name='i18n mcms locale' pattern='(i18n|I18N|i18N|I18n|mcms|MCMS|Mcms|locale|Locale|LOCALE)+' description='Filter i18n mcms locale literals' enabled='false' />
+    <stringOperandFilter name='market' pattern='market' description='Filters market strings' enabled='true' />
+    <stringOperandFilter name='mode' pattern='mode' description='Filters mode strings' enabled='true' />
+    <methodLineFilter name='console.methods' pattern='console\.\w+\(' description='NodeJS Console logging methods.' category='NodeJS' enabled='false' />
+    <methodLineFilter name='logger methods' pattern='logger' description='logger will not displayed on frontend' enabled='true' />
+    <methodLineFilter name='log methods' pattern='(?i)log\.\w+\(' description='log methods will not displayed on frontend' enabled='true' />
+    <methodLineFilter name='replace.method' pattern='\.replace\(' description='replace method will not shown in frontend' enabled='false' />
+    <methodLineFilter name='console.methods' pattern='(?i)console\.\w+\(' description='NodeJS Console logging methods.' category='NodeJS' enabled='true' />
+    <methodLineFilter name='indexOf method' pattern='\.indexOf\(' description='literal inside indexOf method will not shown in frontend' enabled='true' />
+    <profile hasgeneric='true' stringmethodfilter='true' localesensitive='true' stmterminator=';' strdelimiter='",&apos;' chardelimiter='",&apos;' linecomment='//' blockcomment='/*,*/' methodcall='paren' defresource='json' resources='json,js,po,properties,rc,resx,xml' strops=':,=,+=,==,!=,===,!==' concatchars='+,+=' arrayindexdelimiter='[,]' arrayinitializer=':' usealt='true' clientscript='true' serverscript='true' statementdelims=';{}' />
+    <resource extension='json' description='json resource file type' method='getString("[key]")' altmethod='getString("[key]")' />
+  </ruleset>
+  <ruleset name='javascript-awesome-ext.venus' language='javascript' enabled='true' shared='true' parent='' id='186'>
+    <extension extension='asp' description='Active Server Pages can contain JavaScript' serverscript='vb' clientscript='javascript' enabled='true' />
+    <extension extension='htm' description='HTM files can contain JavaScript' clientscript='javascript' enabled='true' />
+    <extension extension='php' description='PHP files can contain JavaScript' serverscript='php' clientscript='javascript' enabled='true' />
+    <extension extension='cshtml' description='Razor files can contain JavaScript' clientscript='javascript' enabled='true' />
+    <extension extension='xhtml' description='XHTML files can contain JavaScript' clientscript='javascript' enabled='true' />
+    <extension extension='jsx' description='[AliI18N] jsx file can contain javascript' clientscript='javascript' enabled='true' />
+    <extension extension='js' description='JavaScript module files' clientscript='javascript' enabled='true' />
+    <extension extension='jspx' description='XML Java Server Page' serverscript='java' clientscript='javascript' enabled='true' />
+    <extension extension='as' description='Action Script files' clientscript='javascript' enabled='true' />
+    <extension extension='asax' description='.NET files can contain JavaScript' serverscript='c#' clientscript='javascript' enabled='true' />
+    <extension extension='tsx' description='[AliI18N] tsx file contains javascript' clientscript='javascript' enabled='true' />
+    <extension extension='mas' description='Mason files can contain JavaScript' serverscript='perl' clientscript='javascript' enabled='true' />
+    <extension extension='aspx' description='.NET files can contain JavaScript' serverscript='c#' clientscript='javascript' enabled='true' />
+    <extension extension='jspf' description='jsp fragment files can contain JavaScript' serverscript='java' clientscript='javascript' enabled='true' />
+    <extension extension='ascx' description='.NET web custom control can contain JavaScript' serverscript='c#' clientscript='javascript' enabled='true' />
+    <extension extension='html' description='HTML files can contain JavaScript' clientscript='javascript' enabled='true' />
+    <extension extension='mi' description='Mason files can contain JavaScript' serverscript='perl' clientscript='javascript' enabled='true' />
+    <extension extension='jsp' description='Java Server Pages can contain JavaScript' serverscript='java' clientscript='javascript' enabled='true' />
+    <stringRetentionPattern name='ali-ext: String like sentences' pattern='\A.*[A-Z][a-z]*\d*[\.,\?!]?\s+[a-z]*.*[\.,\?!]\Z' priority='1' description='ali-ext: String like sentences' category='ali-ext' enabled='false' />
+    <stringRetentionPattern name='Date Format - M/dd/yy' pattern='M/dd/yy' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='HTML alt' pattern='(?i)\balt\s*=[&apos;"\\\s]*[a-z]' priority='1' description='Do not filter HTML alt strings.' enabled='false' />
+    <stringRetentionPattern name='Date Format - hours:minutes' pattern='hh:mm\s*(dd\s*MM\s*yyyy)?' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='Date Format - dd.MM.yyyy' pattern='dd\.MM\.yyyy' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='Date Format - dddd dd' pattern='dddd\s*dd' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='Date Format - mm-dd-yyyy' pattern='mm-dd-yyyy' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='Date Format - 6AM or 7:00 PM' pattern='(?i)[0-9]\s*(am|pm)\b' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='HTML value' pattern='(?i)\bvalue\s*=[&apos;"\\\s]*[a-z]' priority='1' description='Do not filter HTML value strings.' enabled='false' />
+    <stringRetentionPattern name='Date Format - MMMM dd yyyy' pattern='MMM(M)?\s*d(,|d)\s*yyyy' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='Date Format - Day, day month year' pattern='D,\s*dd?\s*M\s*yy?' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='Date Format - dd/MM/yy' pattern='dd/MM/yy(yy\s*HH:mm)?' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='HTML title' pattern='(?i)\btitle\s*=[&apos;"\\\s]*[a-z]' priority='1' description='Do not filter HTML title strings.' enabled='false' />
+    <stringRetentionPattern name='Date Format - year:month:day' pattern='yyyy:MM:dd' priority='1' description='Hard-coded date formats need to be internationalized.' enabled='false' />
+    <stringRetentionPattern name='HTML title' pattern='(?i)\btext\s*=[&apos;"\\\s]*[a-z]' priority='1' description='Do not filter HTML text strings.' enabled='false' />
+    <stringRetentionPattern name='Ali18n: CJK' pattern='[\u4E00-\u9FA5]+' priority='1' description='Do not filter CJK string' category='ali-ext' enabled='true' />
+    <stringRetentionPattern name='Extended Characters' pattern='[\x80-\xFF]' priority='1' description='Do not filter strings with extended characters.' enabled='true' />
+    <stringRetentionPattern name='Technical Terms' pattern='(?i)(\bWiMAX\b|\bWiFi\b)' priority='1' description='Do not filter camel case technical terms and abbreviations that appear in dictionary.' enabled='true' />
+    <stringRetentionPattern name='Months' pattern='\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b|\b(January|February|March|April|May|June|July|August|September|October|November|December)\b' priority='1' description='String contains an english month' enabled='true' />
+    <stringMethodPattern name='showModal' pattern='showModal' priority='1' description='showModal may displayed on frontend' enabled='true' />
+    <stringMethodPattern name='confirm' pattern='(?i)confirm' priority='1' description='Detect strings passed to this method' enabled='true' />
+    <stringMethodPattern name='alert' pattern='(?i)alert' priority='1' description='Detect strings passed to this method' enabled='false' />
+    <stringMethodPattern name='createFromHtml' pattern='createFromHtml' priority='1' description='Force detection of element.createFromHtml html content.' enabled='true' />
+    <stringOperandPattern name='Placeholder' pattern='placeholder' priority='1' description='Retain placeholder attribute strings' enabled='true' />
+    <stringOperandPattern name='title' pattern='title' priority='1' description='Retain title attribute strings' enabled='true' />
+    <stringOperandPattern name='Labels' pattern='\w*(?&lt;!aria.)[lL]abel[=\s]\w*' priority='1' description='Retain label attribute strings' enabled='true' />
+    <stringOperandPattern name='Labels' pattern='\w*[lL]abel\w*' priority='1' description='Retain label attribute strings' enabled='false' />
+    <localeSensitiveMethodPatternGroup name='String Operations' description='String manipulation functions' enabled='true'>
+      <localeSensitiveMethodPattern name='indexOf' pattern='indexOf' priority='2' description='indexOf' helpPage='localeSensitiveMethods/js_indexOf.html' enabled='true' />
+      <localeSensitiveMethodPattern name='replace' pattern='replace' priority='2' description='replace' helpPage='localeSensitiveMethods/js_replace.html' enabled='true' />
+      <localeSensitiveMethodPattern name='lastIndexOf' pattern='lastIndexOf' priority='2' description='lastIndexOf' helpPage='localeSensitiveMethods/js_lastIndexOf.html' enabled='true' />
+      <localeSensitiveMethodPattern name='valueOf' pattern='valueOf' priority='3' description='valueOf' helpPage='localeSensitiveMethods/js_valueOf.html' enabled='true' />
+      <localeSensitiveMethodPattern name='endsWith' pattern='endsWith' priority='2' description='endsWith' helpPage='localeSensitiveMethods/js_endsWith.html' enabled='true' />
+      <localeSensitiveMethodPattern name='compare' pattern='compare' priority='1' description='compare' category='IBM I18n' helpPage='localeSensitiveMethods/js_ibm_compare.html' enabled='true' />
+      <localeSensitiveMethodPattern name='contains' pattern='contains' priority='2' description='contains' helpPage='localeSensitiveMethods/js_contains.html' enabled='true' />
+      <localeSensitiveMethodPattern name='substr' pattern='substr' priority='2' description='substr' helpPage='localeSensitiveMethods/js_substr.html' enabled='true' />
+      <localeSensitiveMethodPattern name='Intl.Collator' pattern='Collator' priority='2' description='Intl.Collator constructor' helpPage='localeSensitiveMethods/js_Collator.html' enabled='true' />
+      <localeSensitiveMethodPattern name='substring' pattern='substring' priority='2' description='substring' helpPage='localeSensitiveMethods/js_substring.html' enabled='true' />
+      <localeSensitiveMethodPattern name='match' pattern='match' priority='2' description='match' helpPage='localeSensitiveMethods/js_match.html' enabled='true' />
+      <localeSensitiveMethodPattern name='search' pattern='search' priority='2' description='search' helpPage='localeSensitiveMethods/js_search.html' enabled='true' />
+      <localeSensitiveMethodPattern name='charAt' pattern='charAt' priority='2' description='charAt' helpPage='localeSensitiveMethods/js_charAt.html' enabled='true' />
+      <localeSensitiveMethodPattern name='sort' pattern='sort' priority='2' description='sort' helpPage='localeSensitiveMethods/js_sort.html' enabled='true' />
+      <localeSensitiveMethodPattern name='join' pattern='join' priority='2' description='join' helpPage='localeSensitiveMethods/js_join.html' enabled='true' />
+      <localeSensitiveMethodPattern name='split' pattern='split' priority='2' description='split' helpPage='localeSensitiveMethods/js_split.html' enabled='true' />
+      <localeSensitiveMethodPattern name='RegExp' pattern='RegExp' priority='2' description='RegExp' helpPage='localeSensitiveMethods/js_RegExp.html' enabled='true' />
+      <localeSensitiveMethodPattern name='concat' pattern='concat' priority='0' description='concat' helpPage='localeSensitiveMethods/js_concat.html' enabled='true' />
+      <localeSensitiveMethodPattern name='slice' pattern='slice' priority='2' description='slice' helpPage='localeSensitiveMethods/js_slice.html' enabled='true' />
+      <localeSensitiveMethodPattern name='localeCompare' pattern='localeCompare' priority='2' description='localeCompare' helpPage='localeSensitiveMethods/js_localeCompare.html' enabled='true' />
+      <localeSensitiveMethodPattern name='startsWith' pattern='startsWith' priority='2' description='startsWith' helpPage='localeSensitiveMethods/js_startsWith.html' enabled='true' />
+    </localeSensitiveMethodPatternGroup>
+    <localeSensitiveMethodPatternGroup name='Encoding' description='Character and File encoding' enabled='true'>
+      <localeSensitiveMethodPattern name='fs.realpath' pattern='realpath' priority='3' description='NodeJS fs.realpath. Insure that the correct encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='Buffer.allocUnsafeSlow' pattern='Buffer\.allocUnsafeSlow' priority='3' description='NodeJS buffer allocation. If text is passed, insure that the buffer is sized correctly for the texts encoding.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_Buffer.allocUnsafeSlow.html' enabled='true' />
+      <localeSensitiveMethodPattern name='socket.setEncoding' pattern='sock(et)?\.setEncoding' priority='4' description='NodeJS socket.setEncoding. It is a good idea to double-check that the correct encoding is set.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_socket_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='buf.fill' pattern='buf(fer)?\.fill' priority='3' description='NodeJS buf.fill. If working with strings, then the correct encoding must be passed. Using an offset will need to be done with care, as some characters may require more bytes than others.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_buf_fill.html' enabled='true' />
+      <localeSensitiveMethodPattern name='codePointAt' pattern='codePointAt' priority='1' description='codePointAt' helpPage='localeSensitiveMethods/js_codePointAt.html' enabled='true' />
+      <localeSensitiveMethodPattern name='unescape' pattern='unescape' priority='3' description='unescape' helpPage='localeSensitiveMethods/js_unescape.html' enabled='true' />
+      <localeSensitiveMethodPattern name='write - generic' pattern='_?write' priority='4' description='NodeJS write methods. Some write methods may be passed an optional encoding. Insure that the encoding is provided if necessary, and that the correct encoding is used.' category='NodeJS' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.appendFileSync' pattern='appendFileSync' priority='2' description='NodeJS fs.appendFileSync. Insure that the correct file encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='push - generic' pattern='push' priority='3' description='NodeJS push method. Takes an optional encoding. Insure that the encoding is set correctly.' category='NodeJS' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.readDirSync' pattern='readDirSync' priority='2' description='NodeJS fs.readDirSync. Insure that the correct file encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='stream transforms' pattern='_?transform' priority='3' description='NodeJS stream transforms. Insure that any stream transforms correctly consider the stream&apos;s encoding.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_stream_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.writeFile' pattern='writeFile' priority='2' description='NodeJS fs.writeFile. Insure that the correct file encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.realpathSync' pattern='realpathSync' priority='3' description='NodeJS fs.realpathSync. Insure that the correct encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='buf.copy' pattern='buf(fer)?\.copy' priority='3' description='NodeJS buf.copy. If copied buffer contains text, then any offset used must be appropriate for the given encoding. It must also account for variable character lengths in utf8/utf16' category='NodeJS' helpPage='localeSensitiveMethods/js_node_buf_copy.html' enabled='true' />
+      <localeSensitiveMethodPattern name='stream.Readable' pattern='Readable' priority='2' description='NodeJS stream.Readable constructor. Takes an optional encoding. Insure that the encoding is set correctly.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_stream_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='tty.ReadStream' pattern='tty\.ReadStream' priority='3' description='NodeJS tty.ReadStream. Input from terminal is likely to be ascii text. If this input is shown to users, care must be taken to insure that it is locale specific.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_tty_ReadStream_WriteStream.html' enabled='true' />
+      <localeSensitiveMethodPattern name='Buffer' pattern='Buffer' priority='3' description='NodeJS Buffer constructor (deprecated). Buffers must be constructed to be the right size for the encoding used.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_Buffer.from.html' enabled='true' />
+      <localeSensitiveMethodPattern name='String.fromCodePoint' pattern='fromCodePoint' priority='1' description='String.fromCodePoint' helpPage='localeSensitiveMethods/js_fromCodePoint.html' enabled='true' />
+      <localeSensitiveMethodPattern name='read - generic' pattern='read' priority='4' description='Looks for all read methods. In NodeJS, read methods may be used to read n bytes. Insure that any n is appropriate for the encoding used, and considers the possibility of variable byte sizes for different unicode characters.' category='NodeJS' enabled='true' />
+      <localeSensitiveMethodPattern name='http request.write' pattern='req(uest)?\.write' priority='2' description='NodeJS http request.write. Insure that the correct encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_http_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='punycode.(endcode|decode)' pattern='punycode\.(encode|decode)' priority='2' description='The default JavaScript strings passed/retrieved will be in UCS2, which does not support characters on outside the Basic Multilingual Plane.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_punycode_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='Buffer read methods' pattern='read(Double|Float|U?Int(8|16|32))(BE|LE)*' priority='3' description='NodeJS buffer read methods, which are encoding sensitive. The encoding(s) used should be double checked for consistency.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_buf_read_write.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.read' pattern='fs\.read' priority='4' description='NodeJS fs.read. Insure that the correct file encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.watch' pattern='watch' priority='3' description='NodeJS fs.watch. Insure that the correct filename encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='http response.end' pattern='resp?(onse)?\.end' priority='2' description='NodeJS http response.end. Insure that the correct encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_http_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='Buffer.byteLength' pattern='Buffer\.byteLength' priority='3' description='Nodejs Buffer.byteLength' category='NodeJS' helpPage='localeSensitiveMethods/js_node_Buffer.byteLength.html' enabled='true' />
+      <localeSensitiveMethodPattern name='socket.end' pattern='sock(et)?\.end' priority='3' description='NodeJS socket.end. Insure that the correct encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_socket_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.createWriteStream' pattern='createWriteStream' priority='2' description='NodeJS fs.createWriteStream. Insure that the correct stream encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='socket.write' pattern='sock(et)?\.write' priority='3' description='NodeJS socket.write. Insure that the correct encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_socket_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='String.fromCharCode' pattern='fromCharCode' priority='1' description='String.fromCharCode' helpPage='localeSensitiveMethods/js_fromCharCode.html' enabled='true' />
+      <localeSensitiveMethodPattern name='tty.WriteStream' pattern='tty\.WriteStream' priority='4' description='NodeJS tty.WriteStream. If non-ascii input may be written, then insure the tty supports the given character set and encoding.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_tty_ReadStream_WriteStream.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.createReadStream' pattern='createReadStream' priority='2' description='NodeJS fs.createReadStream. Insure that the correct stream encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='StringDecoder' pattern='StringDecoder' priority='3' description='NodeJS StringDecoder constructor. You may wish to double check that the correct encoding is being used with the decoder.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_StringDecoder.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.appendFile' pattern='appendFile' priority='2' description='NodeJS fs.appendFile. Insure that the correct file encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='encodeURI' pattern='encodeURI' priority='3' description='encodeURI' helpPage='localeSensitiveMethods/js_encodeURI.html' enabled='true' />
+      <localeSensitiveMethodPattern name='os.userInfo' pattern='os\.userInfo' priority='3' description='NodeJS os.userinfo. Takes an encoding as an optional parameter. Insure that appropriate encoding is used.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_os_userinfo.html' enabled='true' />
+      <localeSensitiveMethodPattern name='Buffer write methods' pattern='write(Double|Float|U?Int(8|16|32))(BE|LE)*' priority='1' description='NodeJS buffer write methods, which are encoding sensitive. The encoding(s) used should be double checked for consistency.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_buf_read_write.html' enabled='true' />
+      <localeSensitiveMethodPattern name='buf.includes' pattern='buf(fer)?\.includes' priority='3' description='NodeJS buf.includes. Takes optional byteOffset and encoding. Insure that a correct encoding is given, and that the byteOffset, if used, accounts for possible extra-wide characters.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_buf_includes.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.readFile' pattern='readFile' priority='2' description='NodeJS fs.readFile. Insure that the correct file encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.readlinkSync' pattern='readlinkSync' priority='3' description='NodeJS fs.readlinkSync. Insure that the correct file encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.writeFileSync' pattern='writeFileSync' priority='2' description='NodeJS fs.writeFileSync. Insure that the correct file encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setDefaultEncoding' pattern='setDefaultEncoding' priority='3' description='NodeJS setDefaultEncoding. This method implies i18n consideration, it should be double checked to insure the correct encoding is used.' category='NodeJS' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.readFileSync' pattern='readFileSync' priority='2' description='NodeJS fs.readFileSync. Insure that the correct file encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.write' pattern='fs\.write' priority='1' description='NodeJS fs.write. Insure that the correct file encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='escape' pattern='escape' priority='3' description='escape' helpPage='localeSensitiveMethods/js_escape.html' enabled='true' />
+      <localeSensitiveMethodPattern name='encodeURIComponent' pattern='encodeURIComponent' priority='3' description='encodeURIComponent' helpPage='localeSensitiveMethods/js_encodeURIComponent.html' enabled='true' />
+      <localeSensitiveMethodPattern name='end - generic' pattern='end' priority='3' description='NodeJS end methods. These often take an optional encoding parameter. The encoding should be supplied if necessary, and checked to insure that it is correct.' category='NodeJS' enabled='true' />
+      <localeSensitiveMethodPattern name='http response.write' pattern='resp?(onse)?\.write' priority='2' description='NodeJS http response.end. Insure that the correct encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_http_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='decodeURIComponent' pattern='decodeURIComponent' priority='3' description='decodeURIComponent' helpPage='localeSensitiveMethods/js_decodeURIComponent.html' enabled='true' />
+      <localeSensitiveMethodPattern name='Buffer.from' pattern='Buffer\.from' priority='3' description='NodeJS Buffer.from. If partially copying a string buffer, the byteOffset and Length parameters must take encoding and variable character lengths into account.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_Buffer.from.html' enabled='true' />
+      <localeSensitiveMethodPattern name='charCodeAt' pattern='charCodeAt' priority='1' description='charCodeAt' helpPage='localeSensitiveMethods/js_charCodeAt.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.writeSync' pattern='writeSync' priority='2' description='NodeJS fs.writeSync. Insure that the correct file encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.readDir' pattern='readDir' priority='2' description='NodeJS fs.readDir. Insure that the correct file encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.watchFile' pattern='watchFile' priority='3' description='NodeJS fs.watchFile. Insure that the correct filename encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='Buffer.allocUnsafe' pattern='Buffer\.allocUnsafe' priority='3' description='NodeJS buffer allocation. If text is passed, insure that the buffer is sized correctly for the texts encoding.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_Buffer.allocUnsafe.html' enabled='true' />
+      <localeSensitiveMethodPattern name='buf.slice' pattern='buf(fer)?\.slice' priority='3' description='NodeJS buf.slice. If slicing a text buffer, the (optional) start and end points must consider unicode vs ascii etc., and the possibility of extra-wide characters.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_buf_slice.html' enabled='true' />
+      <localeSensitiveMethodPattern name='decodeURI' pattern='decodeURI' priority='3' description='decodeURI' helpPage='localeSensitiveMethods/js_decodeURI.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setEncoding - generic' pattern='setEncoding' priority='4' description='Encodings should be double checked to confirm they are correct.' category='NodeJS' enabled='true' />
+      <localeSensitiveMethodPattern name='socket.send' pattern='sock(et)?\.send' priority='3' description='NodeJS socket.send method. Can be an issue if sending a buffer of non-ascii text and specifying an offset or length. In these cases, insure that the offset/length considers possible wide-characters.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_socket_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='http request.end' pattern='request\.end' priority='2' description='NodeJS http request.end. Insure that the correct encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_http_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='Buffer.alloc' pattern='Buffer\.alloc' priority='3' description='NodeJS buffer allocation. If text is passed, insure the buffer is created with the correct encoding specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_Buffer.alloc.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.readlink' pattern='readlink' priority='3' description='NodeJS fs.readlink. Insure that the correct file encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fs.readSync' pattern='readSync' priority='2' description='NodeJS fs.readSync. Insure that the correct file encoding is specified.' category='NodeJS' helpPage='localeSensitiveMethods/js_node_file_system_methods.html' enabled='true' />
+    </localeSensitiveMethodPatternGroup>
+    <localeSensitiveMethodPatternGroup name='Date/Time' description='Date and Time formatting and display' enabled='true'>
+      <localeSensitiveMethodPattern name='setUTCHours' pattern='setUTCHours' priority='3' description='setUTCHours' helpPage='localeSensitiveMethods/js_setUTCHours.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getUTCSeconds' pattern='getUTCSeconds' priority='3' description='getUTCSeconds' helpPage='localeSensitiveMethods/js_getUTCSeconds.html' enabled='true' />
+      <localeSensitiveMethodPattern name='isDate' pattern='isDate' priority='2' enabled='true' />
+      <localeSensitiveMethodPattern name='now' pattern='now' priority='1' description='Equivalent to (new Date).getTime()' helpPage='localeSensitiveMethods/js_getTime.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getDate' pattern='getDate' priority='1' description='getDate' helpPage='localeSensitiveMethods/js_getDate.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setSeconds' pattern='setSeconds' priority='1' description='setSeconds' helpPage='localeSensitiveMethods/js_setSeconds.html' enabled='true' />
+      <localeSensitiveMethodPattern name='Date' pattern='Date' priority='1' description='Date' helpPage='localeSensitiveMethods/js_Date.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setTime' pattern='setTime' priority='1' description='setTime' helpPage='localeSensitiveMethods/js_setTime.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getMonth' pattern='getMonth' priority='1' description='getMonth' helpPage='localeSensitiveMethods/js_getMonth.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getUTCDate' pattern='getUTCDate' priority='3' description='getUTCDate' helpPage='localeSensitiveMethods/js_getUTCDate.html' enabled='true' />
+      <localeSensitiveMethodPattern name='toUTCString' pattern='toUTCString' priority='3' description='toUTCString' helpPage='localeSensitiveMethods/js_toUTCString.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getFullYear' pattern='getFullYear' priority='1' description='getFullYear' helpPage='localeSensitiveMethods/js_getFullYear.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getHours' pattern='getHours' priority='1' description='getHours' helpPage='localeSensitiveMethods/js_getHours.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setDate' pattern='setDate' priority='1' description='setDate' helpPage='localeSensitiveMethods/js_setDate.html' enabled='true' />
+      <localeSensitiveMethodPattern name='parseDate' pattern='parseDate' priority='1' description='parseDate' category='IBM I18n' helpPage='localeSensitiveMethods/js_ibm_parseDate.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setMonth' pattern='setMonth' priority='1' description='setMonth' helpPage='localeSensitiveMethods/js_setMonth.html' enabled='true' />
+      <localeSensitiveMethodPattern name='toGMTString' pattern='toGMTString' priority='3' description='toGMTString' helpPage='localeSensitiveMethods/js_toGMTString.html' enabled='true' />
+      <localeSensitiveMethodPattern name='TimeZone.getDisplayName' pattern='getDisplayName' priority='1' description='TimeZone.getDisplayName' category='IBM I18n' helpPage='localeSensitiveMethods/js_ibm_timezone_getDisplayName.html' enabled='true' />
+      <localeSensitiveMethodPattern name='Date.UTC' pattern='UTC' priority='3' description='UTC Date constructor' helpPage='localeSensitiveMethods/js_UTC.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getUTCFullYear' pattern='getUTCFullYear' priority='3' description='getUTCFullYear' helpPage='localeSensitiveMethods/js_getUTCFullYear.html' enabled='true' />
+      <localeSensitiveMethodPattern name='toTimeString' pattern='toTimeString' priority='1' description='toTimeString' helpPage='localeSensitiveMethods/js_toTimeString.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setUTCSeconds' pattern='setUTCSeconds' priority='3' description='setUTCSeconds' helpPage='localeSensitiveMethods/js_setUTCSeconds.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getMinutes' pattern='getMinutes' priority='1' description='getMinutes' helpPage='localeSensitiveMethods/js_getMinutes.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setUTCDate' pattern='setUTCDate' priority='3' description='setUTCDate' helpPage='localeSensitiveMethods/js_setUTCDate.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getMilliseconds' pattern='getMilliseconds' priority='1' description='getMilliseconds' helpPage='localeSensitiveMethods/js_getMilliseconds.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getSeconds' pattern='getSeconds' priority='1' description='getSeconds' helpPage='localeSensitiveMethods/js_getSeconds.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getUTCMinutes' pattern='getUTCMinutes' priority='3' description='getUTCMinutes' helpPage='localeSensitiveMethods/js_getUTCMinutes.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getTime' pattern='getTime' priority='1' description='getTime' helpPage='localeSensitiveMethods/js_getTime.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setUTCDay' pattern='setUTCDay' priority='3' description='setUTCDay' helpPage='localeSensitiveMethods/js_setUTCDay.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setMilliseconds' pattern='setMilliseconds' priority='3' description='setMilliseconds' helpPage='localeSensitiveMethods/js_setMilliseconds.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getUTCDay' pattern='getUTCDay' priority='3' description='getUTCDay' helpPage='localeSensitiveMethods/js_getUTCDay.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getDay' pattern='getDay' priority='1' description='getDay' helpPage='localeSensitiveMethods/js_getDay.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getUTCMilliseconds' pattern='getUTCMilliseconds' priority='3' description='getUTCMilliseconds' helpPage='localeSensitiveMethods/js_getUTCMilliseconds.html' enabled='true' />
+      <localeSensitiveMethodPattern name='toLocaleDateString' pattern='toLocaleDateString' priority='3' description='toLocaleDateString' helpPage='localeSensitiveMethods/js_toLocaleDateString.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getUTCMonth' pattern='getUTCMonth' priority='3' description='getUTCMonth' helpPage='localeSensitiveMethods/js_getUTCMonth.html' enabled='true' />
+      <localeSensitiveMethodPattern name='toDateString' pattern='toDateString' priority='1' description='toDateString' helpPage='localeSensitiveMethods/js_toDateString.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getYear' pattern='getYear' priority='1' description='getYear' helpPage='localeSensitiveMethods/js_getYear.html' enabled='true' />
+      <localeSensitiveMethodPattern name='getTimezoneOffset' pattern='getTimezoneOffset' priority='3' description='getTimezoneOffset' helpPage='localeSensitiveMethods/js_getTimezoneOffset.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setYear' pattern='setYear' priority='1' description='setYear' helpPage='localeSensitiveMethods/js_setYear.html' enabled='true' />
+      <localeSensitiveMethodPattern name='Date.parse' pattern='parse' priority='1' description='Date.parse' helpPage='localeSensitiveMethods/js_parse.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setUTCMilliseconds' pattern='setUTCMilliseconds' priority='3' description='setUTCMilliseconds' helpPage='localeSensitiveMethods/js_setUTCMilliseconds.html' enabled='true' />
+      <localeSensitiveMethodPattern name='toLocaleTimeString' pattern='toLocaleTimeString' priority='3' description='toLocaleTimeString' helpPage='localeSensitiveMethods/js_toLocaleTimeString.html' enabled='true' />
+      <localeSensitiveMethodPattern name='Intl.DateTimeFormat' pattern='DateTimeFormat' priority='3' description='Intl.DateTimeFormat constructor' helpPage='localeSensitiveMethods/js_DateTimeFormat.html' enabled='true' />
+      <localeSensitiveMethodPattern name='toISOString' pattern='toISOString' priority='3' description='toISOString' helpPage='localeSensitiveMethods/js_toISOString.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setUTCMinutes' pattern='setUTCMinutes' priority='3' description='setUTCMinutes' helpPage='localeSensitiveMethods/js_setUTCMinutes.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setUTCFullYear' pattern='setUTCFullYear' priority='3' description='setUTCFullYear' helpPage='localeSensitiveMethods/js_setUTCFullYear.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setFullYear' pattern='setFullYear' priority='1' description='setFullYear' helpPage='localeSensitiveMethods/js_setFullYear.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setMinutes' pattern='setMinutes' priority='1' description='setMinutes' helpPage='localeSensitiveMethods/js_setMinutes.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setUTCMonth' pattern='setUTCMonth' priority='3' description='setUTCMonth' helpPage='localeSensitiveMethods/js_setUTCMonth.html' enabled='true' />
+      <localeSensitiveMethodPattern name='setHours' pattern='setHours' priority='1' description='setHours' helpPage='localeSensitiveMethods/js_setHours.html' enabled='true' />
+    </localeSensitiveMethodPatternGroup>
+    <localeSensitiveMethodPatternGroup name='Locale Format' description='Locale-sensitive formatting and display' enabled='true'>
+      <localeSensitiveMethodPattern name='parseInvariant' pattern='parseInvariant' priority='1' description='Date/Number parseInvariant' helpPage='localeSensitiveMethods/js_parseInvariant.html' enabled='true' />
+      <localeSensitiveMethodPattern name='localeFormat' pattern='localeFormat' priority='2' description='Date/Number/String localeFormat' helpPage='localeSensitiveMethods/js_localeFormat.html' enabled='true' />
+      <localeSensitiveMethodPattern name='parseLocale' pattern='parseLocale' priority='1' description='Date/Number parseLocale' helpPage='localeSensitiveMethods/js_parseLocale.html' enabled='true' />
+    </localeSensitiveMethodPatternGroup>
+    <localeSensitiveMethodPatternGroup name='String Formatting Operations' description='String formatting and display' enabled='true'>
+      <localeSensitiveMethodPattern name='bold' pattern='bold' priority='2' description='bold' helpPage='localeSensitiveMethods/js_bold.html' enabled='true' />
+      <localeSensitiveMethodPattern name='toUpperCase' pattern='toUpperCase' priority='2' description='toUpperCase' helpPage='localeSensitiveMethods/js_choose_toUpperCase.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fontcolor' pattern='fontcolor' priority='2' description='font color' helpPage='localeSensitiveMethods/js_fontcolor.html' enabled='true' />
+      <localeSensitiveMethodPattern name='big' pattern='big' priority='2' description='big' helpPage='localeSensitiveMethods/js_big.html' enabled='true' />
+      <localeSensitiveMethodPattern name='String' pattern='String' priority='2' description='String' helpPage='localeSensitiveMethods/js_String.html' enabled='true' />
+      <localeSensitiveMethodPattern name='toLowerCase' pattern='toLowerCase' priority='2' description='toLowerCase' helpPage='localeSensitiveMethods/js_choose_toLowerCase.html' enabled='true' />
+      <localeSensitiveMethodPattern name='italics' pattern='italics' priority='2' description='italics' helpPage='localeSensitiveMethods/js_italics.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fontsize' pattern='fontsize' priority='2' description='font size' helpPage='localeSensitiveMethods/js_fontsize.html' enabled='true' />
+      <localeSensitiveMethodPattern name='sup' pattern='sup' priority='2' description='sup' helpPage='localeSensitiveMethods/js_sup.html' enabled='true' />
+      <localeSensitiveMethodPattern name='small' pattern='small' priority='2' description='small' helpPage='localeSensitiveMethods/js_small.html' enabled='true' />
+      <localeSensitiveMethodPattern name='toLocaleString' pattern='toLocaleString' priority='3' description='toLocaleString' helpPage='localeSensitiveMethods/js_toLocaleString.html' enabled='true' />
+      <localeSensitiveMethodPattern name='strike' pattern='strike' priority='2' description='strike' helpPage='localeSensitiveMethods/js_strike.html' enabled='true' />
+      <localeSensitiveMethodPattern name='toString' pattern='toString' priority='1' description='toString' helpPage='localeSensitiveMethods/js_choose_toString.html' enabled='true' />
+      <localeSensitiveMethodPattern name='String.format' pattern='format' priority='1' description='format is a method for String, Date, and Number classes' helpPage='localeSensitiveMethods/js_format.html' enabled='true' />
+      <localeSensitiveMethodPattern name='sub' pattern='sub' priority='2' description='sub' helpPage='localeSensitiveMethods/js_sub.html' enabled='true' />
+      <localeSensitiveMethodPattern name='toLocaleLowerCase' pattern='toLocaleLowerCase' priority='3' description='toLocaleLowerCase' helpPage='localeSensitiveMethods/js_toLocaleLowerCase.html' enabled='true' />
+      <localeSensitiveMethodPattern name='fixed' pattern='fixed' priority='2' description='fixed sized font' helpPage='localeSensitiveMethods/js_fixed.html' enabled='true' />
+      <localeSensitiveMethodPattern name='toLocaleUpperCase' pattern='toLocaleUpperCase' priority='3' description='toLocaleUpperCase' helpPage='localeSensitiveMethods/js_toLocaleUpperCase.html' enabled='true' />
+    </localeSensitiveMethodPatternGroup>
+    <localeSensitiveMethodPatternGroup name='Number Format' description='Currency and Number formatting and display' enabled='true'>
+      <localeSensitiveMethodPattern name='Intl.NumberFormat' pattern='NumberFormat' priority='1' description='Intl.NumberFormat constructor' helpPage='localeSensitiveMethods/js_NumberFormat.html' enabled='true' />
+      <localeSensitiveMethodPattern name='Number' pattern='Number' priority='1' description='Number' helpPage='localeSensitiveMethods/js_Number.html' enabled='true' />
+      <localeSensitiveMethodPattern name='parseFloat' pattern='parseFloat' priority='1' description='parseFloat' helpPage='localeSensitiveMethods/js_choose_parseFloat.html' enabled='true' />
+      <localeSensitiveMethodPattern name='parseFloatWithDecimalSeparatorTolerance' pattern='parseFloatWithDecimalSeparatorTolerance' priority='1' description='parseFloatWithDecimalSeparatorTolerance' category='IBM I18n' helpPage='localeSensitiveMethods/js_ibm_parseFloatWithDecimalSeparatorTolerance.html' enabled='true' />
+      <localeSensitiveMethodPattern name='toPrecision' pattern='toPrecision' priority='1' description='toPrecision' helpPage='localeSensitiveMethods/js_toPrecision.html' enabled='true' />
+      <localeSensitiveMethodPattern name='Number.toExponential' pattern='toExponential' priority='1' description='Number.toExponential' helpPage='localeSensitiveMethods/js_toExponential.html' enabled='true' />
+      <localeSensitiveMethodPattern name='toFixed' pattern='toFixed' priority='1' description='toFixed' helpPage='localeSensitiveMethods/js_toFixed.html' enabled='true' />
+      <localeSensitiveMethodPattern name='parseInt' pattern='parseInt' priority='1' description='parseInt' helpPage='localeSensitiveMethods/js_choose_parseInt.html' enabled='true' />
+    </localeSensitiveMethodPatternGroup>
+    <staticFilePattern name='.wsdd' pattern='\.wsdd' priority='1' description='XML' enabled='true' />
+    <staticFilePattern name='.bmp' pattern='\.bmp' priority='1' description='Image' enabled='true' />
+    <staticFilePattern name='.rmd' pattern='\.rmd' priority='1' description='XML' enabled='true' />
+    <staticFilePattern name='.xsd' pattern='\.xsd' priority='1' description='XML' enabled='true' />
+    <staticFilePattern name='.mov' pattern='\.mov' priority='1' description='Movie' enabled='true' />
+    <staticFilePattern name='.styl' pattern='\.styl' priority='1' description='Style Sheet' enabled='true' />
+    <staticFilePattern name='.gif' pattern='\.gif' priority='1' description='Image' enabled='true' />
+    <staticFilePattern name='.jpeg' pattern='\.jpe?g' priority='1' description='Image' enabled='true' />
+    <staticFilePattern name='.avi' pattern='\.avi' priority='1' description='Video' enabled='true' />
+    <staticFilePattern name='.css' pattern='\.css' priority='1' description='Style Sheet' enabled='true' />
+    <staticFilePattern name='.html' pattern='\.html?' priority='1' description='Static Web File' enabled='true' />
+    <staticFilePattern name='.xslt' pattern='\.xslt' priority='1' description='XML' enabled='true' />
+    <staticFilePattern name='.xul' pattern='\.xul' priority='1' description='XML' enabled='true' />
+    <staticFilePattern name='.tiff' pattern='\.tiff' priority='1' description='Image' enabled='true' />
+    <staticFilePattern name='.xsl' pattern='\.xsl' priority='1' description='XML' enabled='true' />
+    <staticFilePattern name='.xliff' pattern='\.xliff' priority='1' description='XML' enabled='true' />
+    <staticFilePattern name='.wsdl' pattern='\.wsdl' priority='1' description='XML' enabled='true' />
+    <staticFilePattern name='.wav' pattern='\.wav' priority='1' description='Audio' enabled='true' />
+    <staticFilePattern name='.swf' pattern='\.swf' priority='1' description='Flash' enabled='true' />
+    <staticFilePattern name='.sass' pattern='\.sass' priority='1' description='Style Sheet' enabled='true' />
+    <staticFilePattern name='.xpm' pattern='\.xpm' priority='1' description='XML' enabled='true' />
+    <staticFilePattern name='.less' pattern='\.less' priority='1' description='Style Sheet' enabled='true' />
+    <staticFilePattern name='.scss' pattern='\.scss' priority='1' description='Style Sheet' enabled='true' />
+    <staticFilePattern name='.xml' pattern='\.xml' priority='1' description='XML' enabled='true' />
+    <staticFilePattern name='.ico' pattern='\.ico' priority='1' description='Image' enabled='true' />
+    <staticFilePattern name='.tld' pattern='\.tld' priority='1' description='XML' enabled='true' />
+    <staticFilePattern name='.png' pattern='\.png' priority='1' description='Image' enabled='true' />
+    <staticFilePattern name='.shtml' pattern='\.shtml' priority='1' description='Static Web File' enabled='true' />
+    <generalPattern name='Font name' pattern='(?i)\b(verdana|arial|timesroman|tahoma|ms\s\w+|(sans-)?serif)\b' priority='3' description='Detect hardcoded font names. Should be locale-dependent. Need to look for specific fonts because there are many different ways that font names are used.' enabled='false' />
+    <generalPattern name='datetime-local' pattern='datetime\-local' priority='1' description='Input type to set the local date and time. The associated date format may not be locale appropriate.' enabled='true' />
+    <generalPattern name='Date input forms' pattern='&lt;input\s*type=[&apos;"](week|month)[&apos;"]' priority='1' description='Date input forms involve creating a Date object, with the associated i18n issues' category='AngularJS' enabled='true' />
+    <generalPattern name='Accept-Language' pattern='Accept-Language' priority='3' description='HTTP protocol Accept-Language header. You may wish to double check that the accepted languages match the application&apos;s locale requirements.' enabled='true' />
+    <generalPattern name='\w+\([&apos;"](upper|lower)case["&apos;]\)' pattern='\w+\([&apos;"](upper|lower)case["&apos;]\)' priority='1' description='Uppercase/Lowercase used as a Filter/Callback/etc.' category='AngularJS' enabled='true' />
+    <generalPattern name='\w+\([&apos;"]date["&apos;]\)' pattern='\w+\([&apos;"]date["&apos;]\)' priority='1' description='Methods passing date as a callback/filter/etc.' category='AngularJS' enabled='true' />
+    <generalPattern name='length' pattern='\blength\s*(===|&gt;=?|&lt;=?)\s*[1-9]\d*' priority='1' description='Check length validation' helpPage='generalPatterns/js_length.html' enabled='true' />
+    <generalPattern name='&apos;base64&apos;' pattern='[&apos;"]base64[&apos;"]' priority='4' description='Type of string encoding. Accepts URL and Filename Safe Alphabet. Use unicode if non-english characters are required.' enabled='true' />
+    <generalPattern name='Accept-Charset' pattern='Accept-Charset' priority='3' description='HTTP protocol Accept-Charset header. You may wish to double check that the accepted character sets match the application&apos;s locale requirements.' enabled='true' />
+    <generalPattern name='Unicode Character Set' pattern='(?i)\bUTF-?[0-9]+' priority='1' description='References to Unicode character set encoding.' enabled='true' />
+    <generalPattern name='&apos;binary&apos;' pattern='["&apos;]binary["&apos;]' priority='3' description='May be used as a way to encode buffers as latin-1 strings.' enabled='true' />
+    <generalPattern name='jQuery load' pattern='\$\(["&apos;][^)]+["&apos;]\)\.load' priority='4' description='Loads an URL. Enable this rule if URL&apos;s must be matched with the proper locale.' category='Aggressive' enabled='false' />
+    <generalPattern name='Font style' pattern='(?i)\bfont-(weight|style):\w+\b' priority='3' description='The style of a font (e.g. bold, italic) may not not look good in a locale&apos;s preferred font.' enabled='true' />
+    <generalPattern name='&apos;ascii&apos;' pattern='[&apos;"]ascii["&apos;]' priority='1' description='Ascii encoding.' enabled='true' />
+    <generalPattern name='ISO-Latin' pattern='(?i)ISO-8859' priority='1' description='References to ISO-Latin character sets. Should probably change to UTF-8' enabled='true' />
+    <generalPattern name='jQuery getScript' pattern='\$\(["&apos;][^)]+["&apos;]\)\.getScript' priority='4' description='Retrieved script may need to be localized for the target locale.' category='jQuery' enabled='true' />
+    <generalPattern name='charset' pattern='\bcharset\b\s*=' priority='3' description='Character set specification. You may wish to double check that the character set(s) are appropriate for the application&apos;s locale requirements.' enabled='true' />
+    <generalPattern name='date:' pattern='\bdate:\s*\\?[&apos;"]' priority='1' description='Date formatting. Date formatting will vary between locales, and should not be hardcoded.' enabled='true' />
+    <fileExtensionFilter name='i18n' pattern='**/i18n/**' patternType='2' category='ali-ext' enabled='true' />
+    <fileExtensionFilter name='ali-ext: filter test demo file' pattern='(h|H)sfs?|HSFS?|(t|T)ddls?|TDDLS?|(d|D)iamonds?|DIAMONDS?|(t|T)airs?|TAIRS?|(p|P)ages?.(vm|html?)|(i|I)gnored.(vm|html?)|(s|S)ecurity.(vm|html?)|(e|E)rror.(vm|html?)|(i|I)ndex.(vm|html?)|(d|D)efault.(vm|html?)|(f|F)ooter.(vm|html?)|(s|S)ubmit.(vm|html?)' patternType='1' category='ali-ext' enabled='true' />
+    <fileExtensionFilter name='node_modules' pattern='node_modules' patternType='1' description='filter out node_modules' enabled='false' />
+    <fileExtensionFilter name='java' pattern='**/java.ts' patternType='2' description='dsl specification file' enabled='true' />
+    <fileExtensionFilter name='ali ext: filter eslintrc.js' pattern='**/.eslintrc.js' patternType='2' description='ali ext: filter eslintrc.js' category='ali-ext' enabled='true' />
+    <fileExtensionFilter name='i18nResource' pattern='**/i18nResource/**' patternType='2' category='ali-ext' enabled='true' />
+    <fileExtensionFilter name='ali ext: filter build js files' pattern='../dest/**' patternType='2' description='ali ext: filter build js files' category='ali-ext' enabled='true' />
+    <fileExtensionFilter name='ali-ext: filter demo/example/test folder or file' pattern='demos?|examples?|tests?' patternType='1' category='ali-ext' enabled='false' />
+    <fileExtensionFilter name='ali-ext: filter demo/example folder' pattern='demos?|examples?|tests?|targets?|dists?|DISTS?|dests?|DESTS?|[t|T]air|TAIR|[t|T]ddl|TDDL|[s|S]ql|SQL|[d|D]iamond|[h|H]sf|HSF|[d|D]emos?|DEMOS?|[t|T]ests?|TESTS?|csrf|CSRF' patternType='1' category='ali-ext' enabled='true' />
+    <fileExtensionFilter name='app-meta Directories' pattern='**/APP-META/**' patternType='2' category='ali-ext' enabled='true' />
+    <fileExtensionFilter name='ali ext: filter build js files' pattern='**/dist/**' patternType='2' description='ali ext: filter build js files' category='ali-ext' enabled='true' />
+    <fileExtensionFilter name='ali ext: filter config jsx' pattern='**/*config*.jsx' patternType='2' description='ali ext: filter config jsx' category='ali-ext' enabled='true' />
+    <fileExtensionFilter name='ali ext: filter config js' pattern='**/*config*.js' patternType='2' description='ali ext: filter config js' category='ali-ext' enabled='true' />
+    <fileExtensionFilter name='ali-ext: filter demo/example folder' pattern='(?i).*\/(demos?|examples?)\/.*' patternType='1' category='ali-ext' enabled='false' />
+    <fileExtensionFilter name='ali ext: filter build js files' pattern='**/build/**' patternType='2' description='ali ext: filter build js files' category='ali-ext' enabled='true' />
+    <fileExtensionFilter name='MooTools JS Lib' pattern='**/MooTools-Core*.js' patternType='2' description='JavaScript framework; supports i18n' helpPage='http://mootools.net/more/docs/1.5.1/Locale/Locale' enabled='true' />
+    <fileExtensionFilter name='Moment JS Lib' pattern='**/moment*.js' patternType='2' description='JavaScript data handling; supports i18n' helpPage='http://momentjs.com/' enabled='true' />
+    <fileExtensionFilter name='Highcharts MooTools JS Lib' pattern='**/mootools-adaptor*.js' patternType='2' description='Highcharts MooTools adaptor module; supports i18n' helpPage='http://www.highcharts.com/docs/advanced-chart-features/internationalization' enabled='true' />
+    <fileExtensionFilter name='AJAX JS Lib' pattern='**/glm-ajax*.js' patternType='2' description='JavaScript cross-browser framework; no i18n issues' helpPage='http://glm-ajax.sourceforge.net/' enabled='true' />
+    <fileExtensionFilter name='Test Directories' pattern='**/test/**' patternType='2' description='Filter test directories.' enabled='true' />
+    <fileExtensionFilter name='JQuery Select2 JS Lib directory' pattern='**/select2/**' patternType='2' description='The jQuery replacement for select boxes' helpPage='https://select2.github.io/' enabled='true' />
+    <fileExtensionFilter name='JavaScript minimized libaries' pattern='**/*min.js' patternType='2' description='Filter all minimized libraries' enabled='true' />
+    <fileExtensionFilter name='JS EcmaScript Shims' pattern='**/es*-shim.js' patternType='2' description='Filter ECMAScript 5, ECMAScript 6 (Harmony) compatibility shims for legacy JavaScript engines' helpPage='https://github.com/es-shims' enabled='true' />
+    <fileExtensionFilter name='Angular JS Lib' pattern='**/angular.js' patternType='2' description='JavaScript framework; supports i18n' helpPage='https://docs.angularjs.org/guide/i18n' enabled='true' />
+    <fileExtensionFilter name='Test Directories' pattern='**/test*/**' patternType='2' description='Filter test directories.' category='Aggressive' enabled='false' />
+    <fileExtensionFilter name='Test Directories' pattern='**/lang/**' patternType='2' description='Directories containing content for multiple languages' enabled='false' />
+    <fileExtensionFilter name='Foundation JS Lib' pattern='**/foundation*.js' patternType='2' description='Frontend JavaScript framework; assume any i18n issues are handled outside library' helpPage='http://foundation.zurb.com/' enabled='true' />
+    <fileExtensionFilter name='Modernizr JS Lib' pattern='**/*modernizr*.js' patternType='2' description='Detects HTML5 and CSS3 features in the user&apos;s browser; has no i18n issues' helpPage='http://modernizr.com' enabled='true' />
+    <fileExtensionFilter name='Prefixfree JS Lib' pattern='**/prefixfree*.js' patternType='2' description='Supports unprefixed CSS properties; has no i18n issues' helpPage='http://leaverou.github.io/prefixfree/' enabled='true' />
+    <fileExtensionFilter name='AngularUI JS Lib' pattern='**/angular-*.js' patternType='2' description='JavaScript utilities for AngularJS framework' helpPage='http://angular-ui.github.io/' enabled='true' />
+    <fileExtensionFilter name='Angular-Foundation JS Lib files' pattern='**/mm-foundation*.js' patternType='2' description='Native AngularJS directives based on Foundation&apos;s markup and CSS; assume any i18n issues are handled outside library' helpPage='http://pineconellc.github.io/angular-foundation/' enabled='true' />
+    <fileExtensionFilter name='i18next JS Lib' pattern='**/i18next*.js' patternType='2' description='i18n javascript library for translating web applications' helpPage='http://i18next.com/' enabled='true' />
+    <fileExtensionFilter name='Mock Lib files' pattern='**/*mock*.js' patternType='2' description='Filter mock files such as jqMock; used for testing' helpPage='https://code.google.com/p/jqmock/' enabled='true' />
+    <fileExtensionFilter name='Mock Lib directory' pattern='**/*mock*/**' patternType='2' description='Filter mock library such as JsMockito; used for testing' helpPage='http://jsmockito.org/' enabled='true' />
+    <fileExtensionFilter name='Q Promise JS Lib' pattern='**/q.js' patternType='2' description='A tool for creating and composing asynchronous promises in JavaScript' helpPage='https://github.com/kriskowal/q' enabled='true' />
+    <fileExtensionFilter name='NodeJS Lib' pattern='**/node*/**' patternType='2' description='JavaScript platform' helpPage='https://nodejs.org/' enabled='true' />
+    <fileExtensionFilter name='Test Directories' pattern='**/__test__/**' patternType='2' description='Filter test directories.' enabled='true' />
+    <fileExtensionFilter name='Globalize JS Lib files' pattern='**/globalize*.js' patternType='2' description='Provides locale-sensitive data handling and message formatting using the official Unicode CLDR JSON data' helpPage='https://github.com/jquery/globalize' enabled='true' />
+    <fileExtensionFilter name='Highcharts Export Module' pattern='**/exporting*.js' patternType='2' description='Highcharts exporting module; supports i18n' helpPage='http://www.highcharts.com/docs/advanced-chart-features/internationalization' enabled='true' />
+    <fileExtensionFilter name='JQuery JS Lib' pattern='**/jquery*.js' patternType='2' description='JavaScript library and plugins; jquery.i18n.properties.js and jquery-ui.js support i18n' helpPage='https://github.com/jquery-i18n-properties/jquery-i18n-properties/wiki' enabled='true' />
+    <fileExtensionFilter name='Test Directories' pattern='**/tests/**' patternType='2' description='Filter test directories.' enabled='true' />
+    <fileExtensionFilter name='Highcharts JS Lib' pattern='**/highcharts*.js' patternType='2' description='Builds interactive maps to display information linked to geography; handles i18n' helpPage='http://www.highcharts.com/docs/advanced-chart-features/internationalization' enabled='true' />
+    <fileExtensionFilter name='AngularUI Utils and Bootstrap' pattern='**/ui-*.js' patternType='2' description='JavaScript utilities for AngularJS framework' helpPage='http://angular-ui.github.io/' enabled='true' />
+    <fileExtensionFilter name='YUI JS Lib' pattern='**/yui*.js' patternType='2' description='JavaScript library supports i18n, but is no longer maintained' helpPage='http://yuilibrary.com/' enabled='true' />
+    <fileExtensionFilter name='AngularUI Alias' pattern='**/alias*.js' patternType='2' description='Utility to rename plugin directives and create mini templates' helpPage='https://github.com/angular-ui/alias' enabled='true' />
+    <fileExtensionFilter name='Dojo JS Lib files' pattern='**/dojo*.js' patternType='2' description='JavaScript framework; supports i18n' helpPage='http://dojotoolkit.org/reference-guide/1.10/dojo/i18n.html' enabled='true' />
+    <fileExtensionFilter name='FullCalendar JS Lib' pattern='**/fullcalendar*.js' patternType='2' description='JQuery calendar plugin; supports i18n' helpPage='http://fullcalendar.io/' enabled='true' />
+    <fileExtensionFilter name='AngularUI Select' pattern='**/select.js' patternType='2' description='AngularJS native version of Select2 and Selectize' helpPage='https://github.com/angular-ui/ui-select' enabled='true' />
+    <fileExtensionFilter name='CLDR JS Lib directory' pattern='**/cldr*/**' patternType='2' description='JavaScript library to facilitate i18n software access and use of the official CLDR JSON data' helpPage='https://github.com/rxaviers/cldrjs' enabled='true' />
+    <fileExtensionFilter name='svn Directories' pattern='**/.svn/**' patternType='2' description='Filter svn directories.' enabled='true' />
+    <fileExtensionFilter name='Dojo JS Lib directory' pattern='**/dojo*/**' patternType='2' description='JavaScript framework; supports i18n' helpPage='http://dojotoolkit.org/reference-guide/1.10/dojo/i18n.html' enabled='true' />
+    <fileExtensionFilter name='Bootstrap JS Lib' pattern='**/bootstrap*.js' patternType='2' description='JavaScript framework for mobile with locale-sensitive date picker' helpPage='http://bootstrap-datepicker.readthedocs.org/en/latest/' enabled='true' />
+    <fileExtensionFilter name='CLDR JS Lib files' pattern='**/cldr*.js' patternType='2' description='JavaScript library to facilitate i18n software access and use of the official CLDR JSON data' helpPage='https://github.com/rxaviers/cldrjs' enabled='true' />
+    <fileExtensionFilter name='Globalize JS Lib directory' pattern='**/globalize/**' patternType='2' description='Provides locale-sensitive data handling and message formatting using the official Unicode CLDR JSON data' helpPage='https://github.com/jquery/globalize' enabled='true' />
+    <fileExtensionFilter name='FastClick JS Lib' pattern='**/fastclick*.js' patternType='2' description='JavaScript library to remove click delays on browsers with touch UIs; no i18n issues' helpPage='https://github.com/ftlabs/fastclick' enabled='true' />
+    <fileExtensionFilter name='Angular-Foundation JS Lib directory' pattern='**/angular-foundation/**' patternType='2' description='Native AngularJS directives based on Foundation&apos;s markup and CSS; assume any i18n issues are handled outside library' helpPage='http://pineconellc.github.io/angular-foundation/' enabled='true' />
+    <fileExtensionFilter name='JQuery Select2 JS Lib files' pattern='**/select2.js' patternType='2' description='The jQuery replacement for select boxes' helpPage='https://select2.github.io/' enabled='true' />
+    <stringLineFilter name='Export Statements' pattern='^export\s+' description='Filters export statements.' category='ali-ext-retention' enabled='true' />
+    <stringLineFilter name='Import Statements' pattern='^import\s+' description='Filters import statements.' category='ali-ext-retention' enabled='false' />
+    <stringLineFilter name='ali ext: i18n filter' pattern='(i18n|I18N|i18N|I18n|mcms|MCMS|Mcms|locale|Locale|LOCALE)+.+\|\|.+' description='ali ext: i18n filter' category='ali-ext' enabled='true' />
+    <stringLineFilter name='intl filter' pattern='intl\.get' description='Filter intl default literals' enabled='true' />
+    <stringLineFilter name='ali ext : filer div className tag' pattern='(className=){1}' description='ali ext : filer div className tag' category='ali-ext-retention' enabled='false' />
+    <stringLineFilter name='ali ext: filter document method' pattern='(document\.){1}(.*?)\(&apos;(.*?)&apos;\)' description='ali ext: filter document method' category='ali-ext-retention' enabled='true' />
+    <stringLineFilter name='HTTP headers' pattern='(?i)^\s*(headers|params|authorization|accept):' description='Filters all headers strings' enabled='true' />
+    <stringLineFilter name='Case statement' pattern='^\s*case\s+[&apos;"]' description='Filters case values; e.g. case "phone"' enabled='true' />
+    <stringLineFilter name='Data types' pattern='(?i)typeof[^=]*==' description='Filters data types.' enabled='true' />
+    <stringLineFilter name='&apos;Authorization&apos;: &apos;Bearer.*' pattern='["&apos;]Authorization["&apos;][,:][\s\t]*["&apos;][Bb]earer' description='Ignore authorization settings.' enabled='true' />
+    <stringLineFilter name='my: "position",' pattern='^\s*my:\s*("[^"]+"|&apos;[^&apos;]+&apos;),?$' description='Passed to jquery .position() method.' category='jQuery' helpPage='https://api.jqueryui.com/position/' enabled='true' />
+    <stringLineFilter name='at: "position"' pattern='^\s*at:\s*("[^"]+"|&apos;[^&apos;]+&apos;),?$' description='Passed to jquery .position() method.' category='jQuery' helpPage='https://api.jqueryui.com/position/' enabled='true' />
+    <stringLineFilter name='(pre_|post_)?emit(&apos;one string only&apos;, ...)' pattern='(pre_|post_)?emit\((&apos;[^&apos;]+&apos;|"[^"]+")[^&apos;"()]+\);' description='NodeJS emit method. Takes eventname to emit as a string. Only detects emit methods with one initial string argument (the emitted event).' category='NodeJS' enabled='true' />
+    <stringLineFilter name='Array index strings' pattern='^[^\[&apos;"]+(([&apos;"]\P{L}*[&apos;"]|\[[^\]]*\])[^\[&apos;"]*)+\Z' description='Filters lines with strings that are array indexes. For example: entry[&apos;trade&apos;];' category='Aggressive' enabled='false' />
+    <stringLineFilter name='element: "elem",' pattern='^\s*element:\s+"\w+",?\s*$' description='Html Elements' enabled='true' />
+    <stringLineFilter name='collision: "collisionParam"' pattern='^\s*collision:\s*("[^"]+"|&apos;[^&apos;]+&apos;),?$' description='Passed to jquery .position() method.' category='jQuery' helpPage='https://api.jqueryui.com/position/' enabled='true' />
+    <stringStatementFilter name='Multi single-word strings' pattern='\A[^&apos;"]*([&apos;"][a-z\p{Punct}_][\w\p{Punct}_]*[&apos;"][^&apos;"]+){2,}\Z' description='Filters statements with multiple single-word strings that are either lowercase, camelcase, or contain underscores/numbers/punctuation.' enabled='true' />
+    <stringLiteralFilter name='ali ext: i18n filter' pattern='(i18n|I18N|i18N|I18n|mcms|MCMS|Mcms|locale|Locale|LOCALE)+' description='ali ext: i18n filter' category='ali-ext-retention' enabled='false' />
+    <stringLiteralFilter name='Ali18n: punctuations' pattern='^[$&amp;+,:;=\\?@#|/&apos;&lt;&gt;.^*()%!-]' category='ali-ext' enabled='true' />
+    <stringLiteralFilter name='ali ext: var filter' pattern='\A\w*_|-\w*\Z' description='ali ext: var filter' category='ali-ext' enabled='false' />
+    <stringLiteralFilter name='ali ext: filter specific file type' pattern='\A(?i)\S+.(html?|js|jsx|css|aspx|acsx|jsp|jspf|xml)\Z' description='ali ext: filter specific file type' category='ali-ext-retention' enabled='true' />
+    <stringLiteralFilter name='ali-ext: all Upper and Lower case' pattern='\A[0-9-\.!@#\$%\\\^&amp;\*\)\(\+=\{\}\[\]\/",&apos;&lt;&gt;~\·`\?:;|]*(\s)*([a-z]+|[A-Z]+)?(\s)*[0-9-!@#\$%\\\^&amp;\*\)\(\+=\{\}\[\]\/"&apos;&lt;&gt;~`|]*\Z' description='all Upper and Lower case with symbol/punc/num around' category='ali-ext' enabled='false' />
+    <stringLiteralFilter name='Ali18n: all UPPER case' pattern='\A[A-Z]+\Z' category='ali-ext' enabled='false' />
+    <stringLiteralFilter name='Ali18n: protocol' pattern='(?i)\A(hsf|top|mtop)\Z' category='ali-ext-retention' enabled='true' />
+    <stringLiteralFilter name='ali-ext: filter demos' pattern='([t|T]air|TAIR|[d|D]iamond|[h|H]sf|HSF|[d|D]emo|DEMO|[t|T]ddl|TDDL|[s|S]ql|SQL[t|T]est|TEST|演示|测试|示例|[b|B]atis|JDBC|[j|J]dbc|[a|A]jax|AJAX|[h|H]ttp|HTTP)+' category='ali-ext-retention' enabled='true' />
+    <stringLiteralFilter name='File extension - Source' pattern='\A(?i)(html?|js|aspx|acsx|jsp|jspf)\Z' description='Filters strings that contain only a source code file extension' enabled='false' />
+    <stringLiteralFilter name='ali ext: filter html|js tag' pattern='\A\s*[$#]?[&lt;&gt;{}\[\](\/\*)]+.*[&lt;&gt;{}\[\]\*\/]+\s*\Z' description='ali ext: filter html|js tag' category='ali-ext' enabled='false' />
+    <stringLiteralFilter name='File extension - Source' pattern='\A(?i)(html?|js|jsx|css|aspx|acsx|jsp|jspf)\Z' description='Filters strings that contain only a source code file extension' enabled='true' />
+    <stringLiteralFilter name='Ali18n: product name' pattern='(?i)\A(diamond|tair)\Z' category='ali-ext-retention' enabled='true' />
+    <stringLiteralFilter name='ali ext: filter var eg:item.minPrice' pattern='\A.*[a-z]\.[a-z].*\Z' description='ali ext: filter var eg:item.minPrice' category='ali-ext' enabled='false' />
+    <stringLiteralFilter name='ali ext: filter str&amp;number mixture. eg:41f3wiy00k5gjcp5t' pattern='([0-9]+[a-zA-Z]+|[a-zA-Z]+[0-9]+)' description='ali ext: filter str&amp;number mixture. eg:41f3wiy00k5gjcp5t' category='ali-ext-retention' enabled='true' />
+    <stringLiteralFilter name='ali-ext: filter code comments' pattern='\A\s*(\/\/|#|\*).*\Z' category='ali-ext-retention' enabled='true' />
+    <stringLiteralFilter name='ali-ext: filter all strings' pattern='[\s\S]*' description='filter all strings' category='ali-ext' enabled='false' />
+    <stringLiteralFilter name='ali ext: filer joint strings' pattern='\A[_]?\S+[-_|=]+\S+\Z' description='ali ext: filer joint strings，eg：typE=addCate|catId=' category='ali-ext' enabled='false' />
+    <stringLiteralFilter name='Regex (expressions|between|pipes)' pattern='\([^|)]+\|([^|)]\|?)+\)' description='Filters Regex expressions. Detects strings in parenthesis separated by pipes.' enabled='true' />
+    <stringLiteralFilter name='JavaScript programmatic 4' pattern='\A(desktop|cookie|tablet|twitter|tweet|(in)?active|default|debug|width|height|new|deleted?|error|submit(ted)?|before|after|border|alert|completed?)\Z' description='Filters javascript programmatic strings' enabled='true' />
+    <stringLiteralFilter name='ReactJS Mouse Events' pattern='\Aon(Click|ContextMenu|DoubleClick|Drag|DragEnd|DragEnter|DragExit|DragLeave|DragOver|DragStart|Drop|MouseDown|MouseEnter|MouseLeave|MouseMove|MouseOut|MouseOver|MouseUp)\Z' description='ReactJS Mouse Events' category='ReactJS' enabled='true' />
+    <stringLiteralFilter name='ReactJS Composition Events' pattern='\Aon(CompositionEnd|CompositionStart|CompositionUpdate)\Z' description='ReactJS Events' category='ReactJS' enabled='true' />
+    <stringLiteralFilter name='Directives 2' pattern='\A(numeric|hover|animation|artifacts|bar|canvas|change|color|path|red|green|relative|affix|album|albums|all|amp|anchor|artifact|bold|bootstrap|cached)\Z' description='HTML or JS directives' enabled='false' />
+    <stringLiteralFilter name='Path only 1' pattern='\A\s*[-A-Za-z0-9_\.:]+[\\/]+[-A-Za-z0-9_\.:\\/]*\s*\Z' description='Filters paths that don&apos;t start with slash; e.g. admin/create' enabled='true' />
+    <stringLiteralFilter name='ID' pattern='\A(?i)ID\Z' description='ID alone is usually always a program element' enabled='true' />
+    <stringLiteralFilter name='Directives 3' pattern='\A(out|position|visibility|disable|enable|inherit|cancel|put|rows|timestamp|lazy|load|mobile|tag|data|press|release|fixed|horizontal|vertical|background|self|tiff|audio|photo|label|icon|opt|divider|count|fit|index)\Z' description='HTML or JS directives' enabled='false' />
+    <stringLiteralFilter name='HTTP directives' pattern='\A[A-Z\W]*\b(GET|POST)\b[A-Z\W]*\Z' description='Instructions to perform http requests.' enabled='true' />
+    <stringLiteralFilter name='ReactJS Form Events' pattern='\Aon(Change|Input|Submit)\Z' description='ReactJS Form Events' category='ReactJS' enabled='true' />
+    <stringLiteralFilter name='Word starts with special char' pattern='\s[@:;,]+\S+' description='Filters strings that contain a word that starts with one of these' enabled='true' />
+    <stringLiteralFilter name='HTML programmatic 3' pattern='(?i)\A\s*(div|inline|cache|class|object|td|tr|body)\s*\Z' description='Filters common HTML programmatic strings' enabled='true' />
+    <stringLiteralFilter name='Insertions only' pattern='\A(%[-\\a-zA-Z0-9_\.&apos;:]+|\\n|\\r|\P{L})+\Z' description='Filters strings that consist only of dynamic insertions. For example: "%s"' enabled='true' />
+    <stringLiteralFilter name='Keys' pattern='\A\{\{?\w+\}\}?\Z' description='Filters keywords, such as {{language}}' enabled='true' />
+    <stringLiteralFilter name='JavaScript programmatic 2' pattern='(?i)\A\s*(var|function|down|up|value|use strict|array|chrome|safari|opera|ie)\Z' description='Filters javascript programmatic strings' enabled='true' />
+    <stringLiteralFilter name='HTML programmatic 2' pattern='(?i)\A\s*(text(area)?|image|style|table|string|context|button)\s*\Z' description='Filters common HTML programmatic strings' enabled='true' />
+    <stringLiteralFilter name='File extension - General' pattern='(?i)\A\P{L}*\.\w+\P{L}*\Z' description='Filters strings that contain only a file extension: .xxx' enabled='true' />
+    <stringLiteralFilter name='Common programmatic' pattern='(?i)\A(localhost|root|ftp:?|https?:?)\Z' description='Filters common programmatic strings' enabled='true' />
+    <stringLiteralFilter name='ReactJS UI Events' pattern='\AonWheel\Z' description='ReactJS UI Events' category='ReactJS' enabled='true' />
+    <stringLiteralFilter name='HTML tags/Special chars only' pattern='\A(&lt;[^&gt;]+&gt;|\\n|\\r|\P{L})+\Z' description='Filters a literal that contains only HTML tags or special characters. If it contains display text between the tags, then it is not filtered' enabled='true' />
+    <stringLiteralFilter name='Simple filename' pattern='\A[-a-zA-Z0-9_]+\.[-a-zA-Z0-9_]+(\.[-a-zA-Z0-9_]+)*\Z' description='Filenames are usually locale-independent' enabled='true' />
+    <stringLiteralFilter name='File extension - Image' pattern='\A(?i)(png|jpg|ico|gif|bmp|xpm)\Z' description='Filters strings that contain only an image file extension' enabled='true' />
+    <stringLiteralFilter name='ReactJS Keyboard Events' pattern='\AonKey(Down|Up|Press)\Z' description='ReactJS Keyboard Events' category='ReactJS' enabled='true' />
+    <stringLiteralFilter name='Single letter' pattern='\A\w\Z' description='Filters single letter strings which are highly unlikely to require translation. Single Letters' enabled='true' />
+    <stringLiteralFilter name='ReactJS Clipboard Events' pattern='\Aon(Copy|Cut|Paste)\Z' description='ReactJS Clipboard Events' category='ReactJS' enabled='true' />
+    <stringLiteralFilter name='Boolean' pattern='\A(true|false|boolean)\Z' description='Filters boolean strings' enabled='true' />
+    <stringLiteralFilter name='HTML alignment' pattern='(?i)\A(center|middle|top|bottom|left|right|absmiddle|justify|butt)\Z' description='Filters alignment options' enabled='true' />
+    <stringLiteralFilter name='Filepath' pattern='\A\s*[\\/]*[-A-Za-z0-9_\.]+[\\/]+[-A-Za-z0-9_\./\\*]+\.\S+\s*\Z' description='Filters strings consisting only of filenames and paths, e.g. data\sports.cfg' enabled='true' />
+    <stringLiteralFilter name='ReactJS Image Events' pattern='\Aon(Load|Error)\Z' description='ReactJS Image Events' category='ReactJS' enabled='true' />
+    <stringLiteralFilter name='bearer' pattern='\A(?i)\s*bearer\s*\Z' enabled='true' />
+    <stringLiteralFilter name='JavaScript programmatic 1' pattern='(?i)\A\s*(visible|contents|keypress|win|absolute|keylisteners|square|flat|round)\Z' description='Filters javascript programmatic strings' enabled='true' />
+    <stringLiteralFilter name='JavaScript identifiers' pattern='\A\$\w+\Z' description='Filters identifiers, such as $analytics and $animate' enabled='true' />
+    <stringLiteralFilter name='ReactJS Transition Events' pattern='onTransitionEnd' description='ReactJS Transition Events' category='ReactJS' enabled='true' />
+    <stringLiteralFilter name='ReactJS Media Events' pattern='\Aon(Abort|CanPlay|CanPlayThrough|DurationChange|Emptied|Encrypted|Ended|Error|LoadedData|LoadedMetadata|LoadStart|Pause|Play|Playing|Progress|RateChange|Seeked|Seeking|Stalled|Suspend|TimeUpdate|VolumeChange|Waiting)\Z' description='ReactJS Media Events' category='ReactJS' enabled='true' />
+    <stringLiteralFilter name='ReactJS Animation Events' pattern='\Aon(AnimationStart|AnimationEnd|AnimationIteration)\Z' description='ReactJS Animation Events' category='ReactJS' enabled='true' />
+    <stringLiteralFilter name='Filepath or URL' pattern='(?i)\A\s*[a-z]\w*:[\\/]+\S*\s*\Z' description='Filters strings consisting only of filepaths or URLS, e.g. c:\data\sports and http://www.lingoport.com' enabled='true' />
+    <stringLiteralFilter name='Path only 2' pattern='\A\s*[\\/]+[-A-Za-z0-9_\.:\\/]*\s*\Z' description='Filters paths that start with slash; e.g. /admin/create' enabled='true' />
+    <stringLiteralFilter name='Pixel size' pattern='(?i)\A\d*px[^a-z]*\Z' description='Filters pixel sizes' enabled='true' />
+    <stringLiteralFilter name='MIME Types' pattern='(?i)\A(application|image|multipart|text|video|audio)/[-\w\.0-9]+\Z' description='Filters MIME types' enabled='true' />
+    <stringLiteralFilter name='Underscored or dashed' pattern='\A\s*[^\s-_]*([-_][^\s-_]*)+\s*\Z' description='Filters underscored or dashed strings. For example: "some-word", "{some_word}", "-word"' enabled='true' />
+    <stringLiteralFilter name='Non-letter chars only' pattern='\A(\\r|\\n|\P{L})+\Z' description='Filters strings consisting entirely of non-letter characters and linefeeds' enabled='true' />
+    <stringLiteralFilter name='Single words - filter, storage' pattern='\A(filter|storage)\Z' description='Filter single words' enabled='true' />
+    <stringLiteralFilter name='Embedded special chars' pattern='\w[:#$%]\w' description='Filters programmatic elements that contain any of the characters in this character-class expression' enabled='true' />
+    <stringLiteralFilter name='Calls to function' pattern='\bfunction\(' description='Filter string literals containing calls to function()' enabled='true' />
+    <stringLiteralFilter name='HTML mouse events' pattern='(?i)\A\s*(mouse(over|down|up|out|move|enter|leave)|(dbl)?click|blur)\Z' description='Filters mouse event strings' enabled='true' />
+    <stringLiteralFilter name='HTML Elements' pattern='\A(\s*\b(a|b|body|button|colgroup|dd|div|dt|em|file|font|footer|form|geo_name|h1|h2|h3|h4|h5|head|header|html|i|iframe|li|ol|p|pane|pre|seq|span|tab|tbody|td|text|textarea|th|tr|tt|type|ul|wrapper)\b[,\s]*)+\Z' description='Filters strings comprised entirely of html element names.' enabled='true' />
+    <stringLiteralFilter name='HTML tags with insertions' pattern='\A(&lt;[^&gt;]+&gt;|%[-\\a-zA-Z0-9_\.&apos;:]+|\\n|\\r|\P{L})+\Z' description='Filters strings containing HTML tags and dynamic insertions' enabled='true' />
+    <stringLiteralFilter name='ReactJS Touch Events' pattern='\Aon(TouchCancel|TouchEnd|TouchMove|TouchStart)\Z' description='ReactJS Touch Events' category='ReactJS' enabled='true' />
+    <stringLiteralFilter name='URL parameters' pattern='\A(\?|\&amp;)\w+\=\Z' description='Filters URL parameters: ?letters= or &amp;letters=' enabled='true' />
+    <stringLiteralFilter name='innerHTML' pattern='\A\P{L}*innerHTML\P{L}*\Z' description='Filters out innerHTML reference' enabled='true' />
+    <stringLiteralFilter name='UTF-8 encoding' pattern='\A(?i)\s*UTF-?8\s*\Z' description='UTF-8 encoding string is not translatable' enabled='true' />
+    <stringLiteralFilter name='Regex Expressions' pattern='((\\[bwst.]|\\\.[*+]|\[[^\]]{0,6}\]|\\[AZSP]|\(\?[^)]+\)).*?){3,}' description='Filters out strings containing regex expressions. Looks for 3 or more of the following: "\b \w \s \t \. .* .+ [q-y,$etc] ^ $ \A \Z \S \P (?i)"' enabled='true' />
+    <stringLiteralFilter name='HTML entities' pattern='\A(&lt;[^&gt;]+&gt;|&amp;[a-z]+[;]*|\P{L})+\Z' description='Filters strings containing one or more HTML entities' enabled='true' />
+    <stringLiteralFilter name='ReactJS Focus Events' pattern='\Aon(Focus|Blur)\Z' description='ReactJS Focus Events' category='ReactJS' enabled='true' />
+    <stringLiteralFilter name='Numbers with optional letters' pattern='(?i)\A[a-z]*[0-9]+[a-z]*\Z' description='Filters numbers with optional letters' enabled='true' />
+    <stringLiteralFilter name='In-quote code block' pattern='\A\s*\)%&gt;\s*\Z' description='Filters out the ends of in-quote code blocks' enabled='true' />
+    <stringLiteralFilter name='File extension - Other' pattern='\A(?i)(xml|xsl|cfg|txt|tmp|html?|log|csv)\Z' description='Filters strings that are one of these file extensions' enabled='true' />
+    <stringLiteralFilter name='Directives 1' pattern='\A(authorization|activate|add|child|clear|content|cover|date|destroy|detach|development|events|exit|failure|person|scan|success|focus|close|modal|collapse|in|open|static|manual|title)\Z' description='HTML or JS directives' enabled='false' />
+    <stringLiteralFilter name='Calls to factory' pattern='\bfactory\(' description='Filter string literals containing calls to factory()' enabled='true' />
+    <stringLiteralFilter name='String starts with special char' pattern='\A\s*[.@:;,~#]+\S+' description='Filters strings where the first word begins with one of these' enabled='true' />
+    <stringLiteralFilter name='Aggressive Regex' pattern='%?s?([|].*[|].*[|]|[/].*[/].*[/])g?' description='Filters out strings containing regex expressions.' category='Aggressive' enabled='false' />
+    <stringLiteralFilter name='HTML programmatic 1' pattern='(?i)\A\s*(block|hidden|radio|scroll|(check)?box|input)\s*\Z' description='Filters common HTML programmatic strings' enabled='true' />
+    <stringLiteralFilter name='Camel case word' pattern='\A[\P{L}&amp;&amp;[^\\]]*\w*[a-z][A-Z]\w*\P{L}*\Z' description='Filters camel case word (containing one or more lowercase letters followed by one or more uppercase letters)' enabled='true' />
+    <stringLiteralFilter name='Directives 4' pattern='\A(post|util|suffix|rejected)\Z' description='HTML or JS directives' enabled='false' />
+    <stringLiteralFilter name='name=value or name==value' pattern='\A[&apos;"\s]*[\S&amp;&amp;[^=]]*\s*==?\s*[\S&amp;&amp;[^=]]*[&apos;"\s]*\Z' description='Filters name=value and name==value strings' enabled='true' />
+    <stringLiteralFilter name='JavaScript programmatic 3' pattern='(?i)\A\s*(drag(able)?|display|disabled|hide|show|toggle|auto|test(ing)?)\Z' description='Filters javascript programmatic strings' enabled='true' />
+    <stringLiteralFilter name='HTML programmatic settings' pattern='(?i)\A\s*(none|null|undefined|select(ed)?|checked)\s*\Z' description='Filters common HTML programmatic settings' enabled='true' />
+    <stringMethodFilter name='choose' pattern='^choose' description='choose should be filtered' enabled='true' />
+    <stringMethodFilter name='on' pattern='on' description='On event do action' enabled='false' />
+    <stringMethodFilter name='startsWith' pattern='startsWith' description='startsWith method' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='show' pattern='^show' description='Filters parameters passed to show. &apos;show&apos; is a jQuery method.' category='jQuery' helpPage='https://api.jqueryui.com/show/' enabled='true' />
+    <stringMethodFilter name='include' pattern='^include' description='Filter include methods' enabled='true' />
+    <stringMethodFilter name='init' pattern='init' description='init method' category='ReactJS' enabled='true' />
+    <stringMethodFilter name='hide' pattern='^hide$' description='Filter only the first string passed to hide. Hide is a jQuery method.' category='jQuery' helpPage='https://api.jqueryui.com/hide/' enabled='true' />
+    <stringMethodFilter name='show' pattern='show' description='Filters parameters passed to show. &apos;show&apos; is a jQuery method.' category='jQuery' helpPage='https://api.jqueryui.com/show/' enabled='false' />
+    <stringMethodFilter name='replace' pattern='replace' description='jQuery HTML/CSS Method. Replaces html elements with given html element.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='avg' pattern='^avg' description='avg method should be filtered' enabled='true' />
+    <stringMethodFilter name='class' pattern='(?i)class' description='filter out class methods' enabled='true' />
+    <stringMethodFilter name='on' pattern='^on' description='On event do action' enabled='true' />
+    <stringMethodFilter name='handle' pattern='^handle' description='Filter handle methods' enabled='true' />
+    <stringMethodFilter name='import' pattern='import' description='import method' enabled='true' />
+    <stringMethodFilter name='get' pattern='^get' description='Filter get literals' enabled='true' />
+    <stringMethodFilter name='hide' pattern='hide' description='Filter only the first string passed to hide. Hide is a jQuery method.' category='jQuery' helpPage='https://api.jqueryui.com/hide/' enabled='false' />
+    <stringMethodFilter name='children' pattern='children' description='jQuery Traversing Methods.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='accessSync' pattern='accessSync' description='NodeJS fs.accessSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='delay' pattern='delay' description='jQuery Effect Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='once' pattern='once' description='Method once, commonly used for single events. Takes the eventname as a string.' enabled='true' />
+    <stringMethodFilter name='utimesSync' pattern='utimesSync' description='NodeJS fs.utimesSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='Debug - Aggressive' pattern='(?i)(\w+)?(log|error|warn|trace|info|debug)' description='Assumes debug and logging output remains in English; e.g. console.log("some error"). More expansive filter than &apos;Debug&apos; rule.' category='Aggressive' enabled='false' />
+    <stringMethodFilter name='lchown' pattern='lchown' description='NodeJS fs.lchown method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='live' pattern='live' description='jQuery Event Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='$parseMinErr' pattern='\$parseMinErr' description='Filters strings passed to $parseMinErr exception.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='realpathSync' pattern='realpathSync' description='NodeJS fs.realpathSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='offsetParent' pattern='offsetParent' description='jQuery Traversing Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='siblings' pattern='siblings' description='jQuery Traversing Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='trigger' pattern='trigger' description='jQuery Event Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='parentsUntil' pattern='parentsUntil' description='jQuery Traversing Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='getConnections' pattern='getConnections' description='NodeJS server.getConnections method. May take callback as string.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='Location' pattern='get(Attrib|Uniform)Location' description='Filters location strings' enabled='true' />
+    <stringMethodFilter name='jQuery Object' pattern='\$' description='Filter strings passed to the jQuery object.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='mkdir' pattern='mkdir' description='NodeJS fs.mkdir method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='AngularJS.injector' pattern='AngularJS\.injector' description='AngularJS ng method. For dependency injection.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='ftruncate' pattern='ftruncate' description='NodeJS fs.ftruncate method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='AngularJS.module' pattern='AngularJS\.module' description='Module is passed the module name. This is not user facing.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='Property names' pattern='(get|hasOwn)Property(Value)?' description='Filters property names; getProperty, hasOwnProperty, getPropertyValue' enabled='true' />
+    <stringMethodFilter name='console.methods' pattern='console\.\w+' description='NodeJS Console logging methods.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='watchFile' pattern='watchFile' description='NodeJS fs.watchFile method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='lookup\w*' pattern='lookup\w*' description='NodeJS Dns Lookup.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='updateClass' pattern='updateClass' description='Filters strings passed to the updateClass method.' enabled='true' />
+    <stringMethodFilter name='HTTP directives' pattern='(GET|POST)' description='HTTP Directives' enabled='true' />
+    <stringMethodFilter name='getComponent' pattern='getComponent' description='Filters parameters passed to getComponent.' enabled='true' />
+    <stringMethodFilter name='linkSync' pattern='linkSync' description='NodeJS fs.linkSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='classList.method' pattern='classList\.\w+' description='Filter classList methods such as add/remove/toggle' enabled='true' />
+    <stringMethodFilter name='appendTo' pattern='appendTo' description='jQuery HTML/CSS Method. Contents will be html tags.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='$parse' pattern='\$parse' description='Filters parameter to AngularJS $parse function. Parameter is a string expression to compile.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='proxy' pattern='proxy' description='jQuery Event Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='not' pattern='not' description='jQuery Traversing Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='getQueryString' pattern='getQueryString' description='Filters string parameters' enabled='true' />
+    <stringMethodFilter name='$animate.methods' pattern='\$animate\.\w+' description='Filters parameters passed to AngularJS animate methods. These methods take event and class names as parameters.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='$resource' pattern='\$resource' description='Filters parameters passed to AngularJS $resource constructor.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='chmod' pattern='chmod' description='NodeJS fs.chmod method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='fadeToggle' pattern='fadeToggle' description='jQuery Effect Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='fstat' pattern='fstat' description='NodeJS fs.fstat method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='AngularJS.fromJson' pattern='AngularJS\.fromJson' description='AngularJS ng module method. Deserializes a JSON String. Disable if JSON may contain issues.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='Attributes' pattern='getAttributeNode|getAttrStringValue|getAttribute(NS)?|setAttribute|hasAttribute(s|NS)?|removeAttribute(NS)?|(remove)?[aA]ttr|addAttribute' description='Filters attribute names' enabled='true' />
+    <stringMethodFilter name='querystring.method' pattern='querystring\.\w+' description='These methods deal with URL queryStrings.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='$setValidity' pattern='\$setValidity' description='AngularJS model controller method. Takes index key to store validation message as string parameter.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='AngularJS.isElement' pattern='AngularJS\.isElement' description='AngularJS ng method. Checks if text is dom element.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='Color' pattern='getColor|getInterpolatedColor' description='Filters colors' enabled='true' />
+    <stringMethodFilter name='(un)?watch(File)?' pattern='(un)?watch(File)?' description='NodeJS File watching methods. Takes filename as string.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='$cacheFactory.methods' pattern='\$cacheFactory\.\w+' description='Filters parameters passed to AngularJS cacheFactory methods. These methods take cacheIDs as string parameters.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='$provide.methods' pattern='\$provide\.\w+' description='Filters AngularJS provider methods. These take service/constant/animation/filter names as strings.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='prop' pattern='prop' description='jQuery HTML/CSS Method' category='jQuery' enabled='true' />
+    <stringMethodFilter name='addHandler' pattern='addHandler' description='Adds a DOM handler. Passed the name of the element and the name of the event.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='addContext' pattern='addContext' description='NodeJS server.addContext method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='fadeOut' pattern='fadeOut' description='jQuery Effect Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='$exceptionHandlerProvider' pattern='\$exceptionHandlerProvider' description='Filter AngularJS $exceptionHandlerProvider parameters' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='$filterProvider.register' pattern='\$filterProvider\.register' description='Filters parameters passed to AngularJS filterProvider register method. (String parameter refers to filter function names)' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='insertAfter' pattern='insertAfter' description='jQuery HTML/CSS Method. Inserts html elements after the selected elements.' category='Aggressive' enabled='false' />
+    <stringMethodFilter name='AngularJS.mock.module' pattern='AngularJS\.mock\.module' description='Filters paramaters passed to AngularJS AngularJS.mock.module method.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='animate' pattern='animate' description='Filter strings passed to animate method' enabled='true' />
+    <stringMethodFilter name='finish' pattern='finish' description='jQuery Effect Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='$exceptionHandler' pattern='\$exceptionHandler' description='Filters parameters passed to AngularJS exceptionHandler. Keep disabled if exception messages will be localized.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='Class name' pattern='getAncestorByClassName|getElementsByClassName|(add|remove|toggle|has)Class' description='Filters class names' enabled='true' />
+    <stringMethodFilter name='futimes' pattern='futimes' description='NodeJS fs.futimes method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='unlink' pattern='unlink' description='NodeJS fs.unlink method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='removeProp' pattern='removeProp' description='jQuery HTML/CSS Method' category='jQuery' enabled='true' />
+    <stringMethodFilter name='get(Relative)?Path' pattern='get(Relative)?Path' description='Filters parameters passed to path-retrieving functions.' enabled='true' />
+    <stringMethodFilter name='renameSync' pattern='renameSync' description='NodeJS fs.renameSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='JSON.parse' pattern='JSON\.parse' description='JSON Parsing' category='Aggressive' enabled='false' />
+    <stringMethodFilter name='module' pattern='module' description='Filters strings passed to module method' enabled='true' />
+    <stringMethodFilter name='ajaxSetup' pattern='ajaxSetup' description='jQuery AJAX Method.' enabled='true' />
+    <stringMethodFilter name='getContentElement' pattern='getContentElement' description='Filters strings passed to getContentElement' category='jQuery' enabled='true' />
+    <stringMethodFilter name='disconnect' pattern='disconnect' description='NodeJS cluster.disconnect method. May take callback as string.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='kill' pattern='kill' description='NodeJS worker.kill method. May take signal, e.g. &apos;SIGTERM&apos;, as string.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='lchownSync' pattern='lchownSync' description='NodeJS fs.lchownSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='blur' pattern='blur' description='jQuery Event Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='(dir|ext|base)name' pattern='(dir|ext|base)name' description='NodeJS path (ext|dir|base)name methods. Take paths as string.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='closest' pattern='closest' description='jQuery Traversing Methods.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='existsSync' pattern='existsSync' description='NodeJS fs.existsSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='element.methods' pattern='element\.\w+' description='Filters parameters passed to methods used to interact with DOM elements.' enabled='true' />
+    <stringMethodFilter name='$httpBackend.methods' pattern='\$httpBackend.\w+' description='Filters paramaters passed to AngularJS $httpBackend methods.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='spawn' pattern='spawn' description='Filter parameters passed to NodeJS child_process.spawn.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='removeClass' pattern='removeClass' description='Filter strings passed to removeClass method' enabled='true' />
+    <stringMethodFilter name='AngularJS.bootstrap' pattern='AngularJS\.bootstrap' description='AngularJS startup method.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='fchmod' pattern='fchmod' description='NodeJS fs.fchmod method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='assert\w*' pattern='assert\w*' description='Filters strings passed to assertion style methods, such as assertEquals.' enabled='true' />
+    <stringMethodFilter name='fchownSync' pattern='fchownSync' description='NodeJS fs.fchownSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='ajaxObject.(open|setRequestHeader)' pattern='ajaxObject\.(open|setRequestHeader)' description='Filters strings passed to ajaxObject methods.' enabled='true' />
+    <stringMethodFilter name='Debug' pattern='(?i)log|error|warn|trace|info|debug|debuglog' description='Assumes debug and logging output remains in English; e.g. console.log("some error")' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='Listener' pattern='(add|remove|attach)(all)?(Event|Dom)?Listener[s]?' description='Filters parameters passed to Listener methods' enabled='true' />
+    <stringMethodFilter name='AngularJS.module(something).method' pattern='AngularJS\.module\([^)]+\)\.\w+' description='Filters strings passed to AngularJS module methods.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='Event Emitter' pattern='emit' description='emit' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='parent' pattern='parent' description='jQuery Traversing Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='fstatSync' pattern='fstatSync' description='NodeJS fs.fstatSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='find' pattern='find' description='jQuery Traversing Methods.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='getJSON' pattern='getJSON' description='jQuery AJAX Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='index' pattern='index' description='jQuery Misc Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='$filter' pattern='\$filter' description='Filters parameter passed to AngularJS filter constructor. Parameter is the name of the filter function to retrieve.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='prevAll' pattern='prevAll' description='jQuery Traversing Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='$animateProvider.register' pattern='\$animateProvider\.register' description='Filters AngularJS animateProvider register method. Method takes the name of an animation as a parameter.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='exec(File)?(Sync)?' pattern='exec(File)?(Sync)?' description='NodeJS child_process.exec/execFile/execSync/execFileSync. Takes command/file to execute as string.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='createConnection' pattern='createConnection' description='NodeJS createConnection method. Takes callback as string.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='Event names' pattern='(detach|attach)Event' description='Filters jQuery event names' enabled='true' />
+    <stringMethodFilter name='lchmodSync' pattern='lchmodSync' description='NodeJS fs.lchmodSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='wrapAll' pattern='wrapAll' description='jQuery HTML/CSS Methods. Wraps specified html elements around all selected elements.' category='Aggressive' enabled='false' />
+    <stringMethodFilter name='symlinkSync' pattern='symlinkSync' description='NodeJS fs.symlinkSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='listenerCount' pattern='listenerCount' description='NodeJS event listenerCount method. Takes event name as string.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='lstat' pattern='lstat' description='NodeJS fs.lstat method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='mkdtemp' pattern='mkdtemp' description='NodeJS fs.mkdtemp method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='$scope.(close|go|switchSelected)' pattern='\$scope\.(close|go|switchSelected)' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='exists' pattern='exists' description='NodeJS fs.exists method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='symlink' pattern='symlink' description='NodeJS fs.symlink method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='$cacheFactory' pattern='\$cacheFactory' description='AngularJS ng method. Takes name of cache object.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='attribute' pattern='attribute' description='Filters strings passed as attributes.' enabled='true' />
+    <stringMethodFilter name='setFlagsFromString' pattern='setFlagsFromString' description='NodeJS v8.setFlagsFromString method. Takes flags as strings.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='attr' pattern='attr' description='Filter strings passed to attr method' enabled='true' />
+    <stringMethodFilter name='getVariable' pattern='getVariable' description='Filters parameters passed to getVariable' enabled='true' />
+    <stringMethodFilter name='Cookies' pattern='getCookie' description='Filters cookie names' enabled='true' />
+    <stringMethodFilter name='setupMaster' pattern='setupMaster' description='NodeJS cluster.setupMaster. Takes a list of settings as strings.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='resolve\w*' pattern='resolve\w*' description='NodeJS DNS resolve methods.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='Style' pattern='getStyle|getStyleData|setStyle' description='Filters styles' enabled='true' />
+    <stringMethodFilter name='RegExp' pattern='RegExp' description='Filters regular expressions' enabled='true' />
+    <stringMethodFilter name='close' pattern='close' description='NodeJS fs.close method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='clearQueue' pattern='clearQueue' description='jQuery Effect Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='(get|set|remove)Header' pattern='(get|set|remove)Header' description='NodeJS http header methods.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='remove(All)?Listener(s)?' pattern='remove(All)?Listener(s)?' description='NodeJS event methods. Take eventName argument as string.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='rmdirSync' pattern='rmdirSync' description='NodeJS fs.rmdirSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='height' pattern='height' description='jQuery HTML/CSS Method' category='jQuery' enabled='true' />
+    <stringMethodFilter name='futimesSync' pattern='futimesSync' description='NodeJS fs.futimesSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='stat' pattern='stat' description='NodeJS fs.stat method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='hashPrefix' pattern='hashPrefix' description='Filters parameters passed to AngularJS locationProvider hashPrefix method.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='filter' pattern='filter' description='jQuery Traversing Methods.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='statSync' pattern='statSync' description='NodeJS fs.statSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='ftruncateSync' pattern='ftruncateSync' description='NodeJS fs.ftruncateSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='undelegate' pattern='undelegate' description='jQuery Event Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='$cookieStore.method' pattern='\$cookieStore\.\w+' description='Filters $cookieStore methods.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='watch' pattern='watch' description='NodeJS fs.watch method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='Timer' pattern='(?i)startTimer' description='Filters timer names' enabled='true' />
+    <stringMethodFilter name='chown' pattern='chown' description='NodeJS fs.chown method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='unlinkSync' pattern='unlinkSync' description='NodeJS fs.unlinkSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='hasClass' pattern='hasClass' description='jQuery HTML/CSS Method' category='jQuery' enabled='true' />
+    <stringMethodFilter name='(add|remove|prepend)?(Once|All)?[Ll]istener[s]?' pattern='(add|remove|prepend)?(Once|All)?[Ll]istener[s]?' description='NodeJS event methods. Take eventName argument as string.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='realpath' pattern='realpath' description='NodeJS fs.realpath method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='slideToggle' pattern='slideToggle' description='jQuery Effect Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='$compileProvider.component' pattern='\$compileProvider\.component' description='Filters AngularJS compileProvider component method.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='vm.methods' pattern='vm.\w+' description='NodeJS virtualmachine methods. Take code to run as a parameter.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='rename' pattern='rename' description='NodeJS fs.rename method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='bind' pattern='bind' description='jQuery Event Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='isElement' pattern='isElement' description='Is the given item a DOM element?' enabled='true' />
+    <stringMethodFilter name='triggerHandler' pattern='triggerHandler' description='jQuery Event Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='is' pattern='is' description='jQuery Traversing Methods.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='removeAttribute' pattern='removeAttribute' description='jQuery HTML/CSS Method' category='jQuery' enabled='true' />
+    <stringMethodFilter name='(pre_|post_)?emit' pattern='(pre_|post_)?emit\((&apos;[^&apos;]+&apos;|"[^"]+")[^&apos;"()]+\);' description='NodeJS emit method. Takes eventname to emit as a string. Only detects emit methods with one initial string argument (the emitted event).' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='prepend(Once)?Listener' pattern='prepend(Once)?Listener' description='NodeJS event methods. Take eventName argument as string.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='$xhrFactory' pattern='\$xhrFactory' description='Filters parameters passed to AngularJS xhrFactory constructor.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='path.join' pattern='path\.join' description='Filters parameters passed to path join methods. Note that this method is detected as a local sensitive method and must still be handled.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='chownSync' pattern='chownSync' description='NodeJS fs.chownSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='AngularJS.copy' pattern='AngularJS\.copy' description='AngularJS ng method.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='execFile' pattern='execFile' description='NodeJS execFile method. Takes command to execute as string.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='offset' pattern='offset' description='jQuery HTML/CSS Method' category='jQuery' enabled='true' />
+    <stringMethodFilter name='closeSync' pattern='closeSync' description='NodeJS fs.closeSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='fadeIn' pattern='fadeIn' description='jQuery Effect Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='Debug' pattern='(?i)log|error|warn|trace|info|debug' description='Assumes debug and logging output remains in English; e.g. console.log("some error")' category='jQuery' enabled='true' />
+    <stringMethodFilter name='fsyncSync' pattern='fsyncSync' description='NodeJS fs.fsyncSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='ajax' pattern='ajax' description='jQuery AJAX Method.' enabled='true' />
+    <stringMethodFilter name='mkdirSync' pattern='mkdirSync' description='NodeJS fs.mkdirSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='$sceDelegate.(trustAs|maybeTrusted)' pattern='\$sceDelegate\.(trustAs|maybeTrusted)' description='Filters parameters to AngularJS sceDelegate trustAs and maybeTrusted methods.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='wrapInner' pattern='wrapInner' description='jQuery HTML/CSS Methods. Wraps specified html elements around inner HTML of each selected element.' category='Aggressive' enabled='false' />
+    <stringMethodFilter name='spawnSync' pattern='spawnSync' description='Filters parameters passed to NodeJS child_process.spawnSync.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='toggleClass' pattern='toggleClass' description='Filters strings passed to toggleClass.' enabled='true' />
+    <stringMethodFilter name='$injector.(has|get)' pattern='\$injector\.(has|get)' description='AngularJS $injector has|get methods. Take name of service/instance and caller name.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='httpOptions' pattern='httpOptions' description='AngularJS JS ng templateRequestProvider method. Takes array of strings defining http options.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='unwatchFile' pattern='unwatchFile' description='NodeJS fs.unwatchFile method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='rmdir' pattern='rmdir' description='NodeJS fs.rmdir method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='mkdtempSync' pattern='mkdtempSync' description='NodeJS fs.mkdtempSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='css' pattern='css' description='jQuery HTML/CSS Method' category='jQuery' enabled='true' />
+    <stringMethodFilter name='wrap' pattern='wrap' description='jQuery HTML/CSS Methods. Wraps specified html elements around selected element.' category='Aggressive' enabled='false' />
+    <stringMethodFilter name='prependTo' pattern='prependTo' description='jQuery HTML/CSS Method. Contents will be html tags.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='lstatSync' pattern='lstatSync' description='NodeJS fs.lstatSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='prev' pattern='prev' description='jQuery Traversing Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='Tag name/ID' pattern='getElementById|getChildrenByTagName|getElementsByTagName(NS)?' description='Filters tag names' enabled='true' />
+    <stringMethodFilter name='HTTP header methods' pattern='(add|set)RequestHeader' description='Filters strings passed to addRequestHeader and setRequestHeader' enabled='true' />
+    <stringMethodFilter name='getPrototype' pattern='getPrototype' description='Filters parameters passed to getPrototype.' enabled='true' />
+    <stringMethodFilter name='State' pattern='setState' description='Filters state strings' enabled='true' />
+    <stringMethodFilter name='isString' pattern='isString' description='Filters strings passed to isString method.' enabled='true' />
+    <stringMethodFilter name='parents' pattern='parents' description='jQuery Traversing Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='trigger' pattern='_?trigger' description='Filters trigger names' enabled='true' />
+    <stringMethodFilter name='getData' pattern='getData' description='Filters programmatic string parameters' enabled='true' />
+    <stringMethodFilter name='prevUntil' pattern='prevUntil' description='jQuery Traversing Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='slideDown' pattern='slideDown' description='jQuery Effect Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='assert.optionalMethod' pattern='assert(\.\w+)*' description='Filters strings passed to assertions' category='Aggressive' enabled='false' />
+    <stringMethodFilter name='addClass' pattern='addClass' description='Filter strings passed to addClass method' enabled='true' />
+    <stringMethodFilter name='by\.(model|binding)' pattern='by\.(model|binding)' enabled='true' />
+    <stringMethodFilter name='File open' pattern='open' description='Filters file/request open parameters' enabled='true' />
+    <stringMethodFilter name='$normalize' pattern='\$normalize' description='AngularJS ng method. Converts string to camelCase.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='connect' pattern='connect' description='NodeJS net.connect method. May take options as strings.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='dbclick' pattern='dbclick' description='jQuery Event Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='access' pattern='access' description='NodeJS fs.access method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='Programmatic string methods' pattern='call|find|get|data|modal|filter' description='String parameters are not UI strings' enabled='true' />
+    <stringMethodFilter name='eventSupported' pattern='eventSupported' description='Filters event names' enabled='true' />
+    <stringMethodFilter name='lchmod' pattern='lchmod' description='NodeJS fs.lchmod method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='Element' pattern='createElement' description='Filters element names' enabled='true' />
+    <stringMethodFilter name='$componentController' pattern='\$componentController' description='Filters paramaters passed to AngularJS $componentController constructor.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='removeData' pattern='removeData' description='jQuery Misc Method. String contents are the name of the element to remove.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='zlib.methods' pattern='zlib\.\w+' description='NodeJS zlib methods. For creating and unpacking archives. May take options and/or a callback as strings.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='fchown' pattern='fchown' description='NodeJS fs.fchown method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='(un)?listen' pattern='(un)?listen' description='NodeJS listen http method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='$routeProvider.methods' pattern='\$routeProvider\.\w+' description='Filters paramaters passed to AngularJS $routeProvider methods.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='getScript' pattern='getScript' description='jQuery AJAX Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='load' pattern='load' description='jQuery AJAX Method.' category='Aggressive' enabled='false' />
+    <stringMethodFilter name='event' pattern='event' description='Filters parameters passed to event. &apos;event&apos; is a jQuery method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='has' pattern='has' description='jQuery Traversing Methods. ex: $("p").has("span")' category='jQuery' enabled='true' />
+    <stringMethodFilter name='off' pattern='off' description='jQuery Event Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='by\.id' pattern='by\.id' enabled='true' />
+    <stringMethodFilter name='insertBefore' pattern='insertBefore' description='jQuery HTML/CSS Method. Inserts html elements before the selected elements.' category='Aggressive' enabled='false' />
+    <stringMethodFilter name='fsync' pattern='fsync' description='NodeJS fs.fsync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='bind' pattern='(un)?bind' description='Filters programmatic strings' enabled='true' />
+    <stringMethodFilter name='$provide.factory' pattern='\$?provide.factory' description='AngularJS ng provider method. Takes service name as string.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='setTimeout' pattern='setTimeout' description='Filters timeout strings' enabled='true' />
+    <stringMethodFilter name='$provide.(factory|service|value|decorator)' pattern='\$?provide\.(factory|service|value|decorator)' description='AngularJS provide methods. Take service name as string argument.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='parse' pattern='parse' description='Assumes no UI strings; e.g. JSON.parse("true")' enabled='true' />
+    <stringMethodFilter name='delegate' pattern='delegate' description='jQuery Event Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='click' pattern='click' description='jQuery Event Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='createSocket' pattern='createSocket' description='NodeJs createSocket method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='link' pattern='link' description='NodeJS fs.link method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='css and html methods' pattern='(css|html)' description='Strings passed to these methods are not UI strings' enabled='true' />
+    <stringMethodFilter name='utimes' pattern='utimes' description='NodeJS fs.utimes method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='configure' pattern='configure' description='Filters programmatic strings' enabled='true' />
+    <stringMethodFilter name='$controller' pattern='\$controller' description='Filters parameters passed to AngularJS controller constructor. Constructor may take controller name.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='$cookies.methods' pattern='\$cookies\.\w+' description='AngularJS Filter Cookie Methods' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='openSync' pattern='openSync' description='NodeJS fs.openSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='dequeue' pattern='dequeue' description='jQuery Effect Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='change' pattern='change' description='jQuery Event Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='pushStack' pattern='pushStack' description='Filters programmatic strings' enabled='true' />
+    <stringMethodFilter name='fadeTo' pattern='fadeTo' description='jQuery Effect Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='one' pattern='one' description='jQuery Event Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='slideUp' pattern='slideUp' description='jQuery Effect Method.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='fork' pattern='fork' description='Filter parameters passed to NodeJS child_process.fork.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='getVertSlider' pattern='getVertSlider' description='Filters parameters passed to getVertSlider' enabled='true' />
+    <stringMethodFilter name='chmodSync' pattern='chmodSync' description='NodeJS fs.chmodSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='$compileProvider.directive' pattern='\$compileProvider\.directive' description='Filters strings passed to AngularJS compileProvider directive method.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='getTypeMap' pattern='getTypeMap' description='Filters parameters passed to getTypeMap' enabled='true' />
+    <stringMethodFilter name='require' pattern='require' description='Filters programmatic string parameters' enabled='true' />
+    <stringMethodFilter name='fchmodSync' pattern='fchmodSync' description='NodeJS fs.fchmodSync method.' category='NodeJS' enabled='true' />
+    <stringMethodFilter name='replaceAll' pattern='replaceAll' description='jQuery HTML/CSS Method. Replaces html elements with given html element.' category='jQuery' enabled='true' />
+    <stringMethodFilter name='scroll(Left|Right|Up|Down|Top|Bottom)' pattern='scroll(Left|Right|Up|Down|Top|Bottom)' description='jQuery HTML/CSS Methods' category='Aggressive' enabled='false' />
+    <stringMethodFilter name='$sceDelegateProvider.resourceUrlWhitelist' pattern='\$sceDelegateProvider\.resourceUrlWhitelist' description='Filters AngularJS animateProvider sceDelegateProvider.resourceUrlWhitelist method.' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='$controllerProvider.allMethods' pattern='\$controllerProvider\.\w+' description='Filters parameters passed to AngularJS controllerProvider methods. (String parameters refer to controller names)' category='AngularJS' enabled='true' />
+    <stringMethodFilter name='ali18n: http method' pattern='(put|post)' category='ali18n' enabled='false' />
+    <stringMethodFilter name='$(emit|broadcast)' pattern='\$(emit|broadcast)' description='Filters AngularJS emit and broadcast messages. These take an eventname parameter and broadcast that eventname to listeners.' category='AngularJS' enabled='true' />
+    <stringOperandFilter name='action' pattern='(?i)action' description='Filters action strings' enabled='false' />
+    <stringOperandFilter name='whiteSpace' pattern='whiteSpace' description='Filters whitespace strings' enabled='true' />
+    <stringOperandFilter name='dimension' pattern='dimension' description='Filters dimension strings' enabled='true' />
+    <stringOperandFilter name='page' pattern='page' description='Filters page strings' enabled='true' />
+    <stringOperandFilter name='currency' pattern='currency' description='Filters currency strings' enabled='true' />
+    <stringOperandFilter name='color' pattern='(?i)color' description='Filters colors; color != "transparent"' enabled='true' />
+    <stringOperandFilter name='country' pattern='country' description='Filters country strings' enabled='true' />
+    <stringOperandFilter name='theme' pattern='theme' description='Filters theme strings' enabled='true' />
+    <stringOperandFilter name='margin' pattern='margin' description='Filters margin strings' enabled='true' />
+    <stringOperandFilter name='display' pattern='display' description='Filters display strings' enabled='true' />
+    <stringOperandFilter name='scene' pattern='scene' description='Filters scene strings' enabled='true' />
+    <stringOperandFilter name='spm' pattern='spm' description='spm means statistical parametric mapping' enabled='true' />
+    <stringOperandFilter name='flex' pattern='flex' description='Filters flex strings' enabled='true' />
+    <stringOperandFilter name='cursor' pattern='cursor' description='Filters cursor strings' enabled='true' />
+    <stringOperandFilter name='index' pattern='(?i)\w*index' description='Assume indices are not displayed in UI' enabled='true' />
+    <stringOperandFilter name='defaultValue' pattern='defaultValue' description='Filters defaultValue strings' enabled='true' />
+    <stringOperandFilter name='icon' pattern='icon' description='Filters icon strings' enabled='true' />
+    <stringOperandFilter name='font' pattern='font' description='Filters font strings' enabled='true' />
+    <stringOperandFilter name='group' pattern='group' description='Filters group strings' enabled='true' />
+    <stringOperandFilter name='align' pattern='align' description='Filters align strings' enabled='true' />
+    <stringOperandFilter name='size' pattern='size' description='Filters size strings' enabled='true' />
+    <stringOperandFilter name='Style' pattern='(?i)\w*style' description='Filter style strings' enabled='true' />
+    <stringOperandFilter name='textOverflow' pattern='textOverflow' description='textOverflow will not displayed on frontend' enabled='true' />
+    <stringOperandFilter name='category' pattern='category' description='Filters category strings' enabled='true' />
+    <stringOperandFilter name='version' pattern='(?i)version' description='version may not displayed on frontend' enabled='true' />
+    <stringOperandFilter name='members' pattern='members' description='Filters members strings' enabled='true' />
+    <stringOperandFilter name='token' pattern='token' description='Filters token strings' enabled='true' />
+    <stringOperandFilter name='orderBy' pattern='(?i)orderBy' description='Filters orderBy strings' enabled='true' />
+    <stringOperandFilter name='local' pattern='local' description='Filters local strings' enabled='true' />
+    <stringOperandFilter name='color' pattern='color' description='Filters colors; color != "transparent"' enabled='false' />
+    <stringOperandFilter name='language' pattern='language' description='Filters language strings' enabled='true' />
+    <stringOperandFilter name='from' pattern='from' description='Filters from strings' enabled='true' />
+    <stringOperandFilter name='i18n mcms locale' pattern='(i18n|I18N|i18N|I18n|mcms|MCMS|Mcms|locale|Locale|LOCALE)+' description='Filter i18n mcms locale literals' enabled='false' />
+    <stringOperandFilter name='market' pattern='market' description='Filters market strings' enabled='true' />
+    <stringOperandFilter name='mode' pattern='mode' description='Filters mode strings' enabled='true' />
+    <stringOperandFilter name='Keys' pattern='(?i)\w*key' description='Filters key names' enabled='true' />
+    <stringOperandFilter name='method' pattern='method' description='Filters JavaScript method names' enabled='true' />
+    <stringOperandFilter name='Protocol' pattern='(?i)\w*protocol' description='Filters protocol strings' enabled='true' />
+    <stringOperandFilter name='error' pattern='error' category='Aggressive' enabled='false' />
+    <stringOperandFilter name='Types' pattern='(?i)[\w.]*types?' description='Filter type names' enabled='true' />
+    <stringOperandFilter name='Attributes' pattern='(?i)[\w.]*attribute' description='Filter attribute strings' enabled='true' />
+    <stringOperandFilter name='Names' pattern='(?i)\w*name' description='Assume names are not displayed in UI' enabled='true' />
+    <stringOperandFilter name='Class' pattern='(?i)\w*class' description='Filters class values, e.g. numberClass = "[object Number]"' enabled='true' />
+    <stringOperandFilter name='visibility' pattern='(?i)visibility' description='Filters visibility setting' enabled='true' />
+    <stringOperandFilter name='sql' pattern='(?i)sql' description='Filters strings assigned to SQL-named variables.' enabled='true' />
+    <stringOperandFilter name='query' pattern='(?i)query\w*' description='Ignore strings assigned to query variables.' enabled='true' />
+    <stringOperandFilter name='ID' pattern='(?i)\w+_ID|id|\w+Id' description='Filters strings assigned/compared to ID variables; id="main" or TRACK_ID="start" or parentId="unknown"' enabled='true' />
+    <stringOperandFilter name='State' pattern='(?i)\w+state' description='Filters strings such as appState="loading"' enabled='true' />
+    <stringOperandFilter name='(console.)?sessionId' pattern='(?i)(console\.)?sessionId' description='Session ID&apos;s are unlikely to be shown to users.' enabled='true' />
+    <stringOperandFilter name='action' pattern='action' description='Filters action strings' enabled='true' />
+    <stringOperandFilter name='position' pattern='position' description='Filters position strings' enabled='true' />
+    <stringOperandFilter name='Status' pattern='(?i)\w*status' description='Filters status strings' enabled='true' />
+    <stringOperandFilter name='Debug Variables' pattern='(?i)(\w+)?log|warn|trace' description='Ignore debug/logging variable contents. Assumes debug and logging output remains in English.' enabled='true' />
+    <stringOperandFilter name='attr' pattern='attr' description='Filters attribute names' enabled='true' />
+    <stringOperandFilter name='target' pattern='target' description='Filters target strings; e.g. target="blank"' enabled='true' />
+    <stringOperandFilter name='Style' pattern='(?i)\w*_style' description='Filter _style strings' enabled='true' />
+    <methodLineFilter name='console.methods' pattern='console\.\w+\(' description='NodeJS Console logging methods.' category='NodeJS' enabled='false' />
+    <methodLineFilter name='logger methods' pattern='logger' description='logger will not displayed on frontend' enabled='true' />
+    <methodLineFilter name='log methods' pattern='(?i)log\.\w+\(' description='log methods will not displayed on frontend' enabled='true' />
+    <methodLineFilter name='replace.method' pattern='\.replace\(' description='replace method will not shown in frontend' enabled='false' />
+    <methodLineFilter name='console.methods' pattern='(?i)console\.\w+\(' description='NodeJS Console logging methods.' category='NodeJS' enabled='true' />
+    <methodLineFilter name='indexOf method' pattern='\.indexOf\(' description='literal inside indexOf method will not shown in frontend' enabled='true' />
+    <methodLineFilter name='classList.method' pattern='classList\.\w+\(' description='Ignore classlist string operations.' enabled='true' />
+    <methodLineFilter name='num(ber)?.toString' pattern='\bnum(ber)?\.toString' description='May be used to convert number to different base.' category='Aggressive' enabled='false' />
+    <methodLineFilter name='(add|remove|prepend)?(Once|All)?[Ll]istener[s]?\(' pattern='(add|remove|prepend)?(Once|All)?[Ll]istener[s]?\(' description='NodeJS event methods.' category='NodeJS' enabled='true' />
+    <methodLineFilter name='error.toString()' pattern='\w*[Ee]rror\.toString' enabled='true' />
+    <methodLineFilter name='Serialized object toString' pattern='serialize\w+?(\.\w+(\(\))?)*\.toString' description='Ignore toString methods on serialized objects.' category='Aggressive' enabled='false' />
+    <methodLineFilter name='toLocaleDateString(&apos;locale&apos;' pattern='toLocaleDateString\(["&apos;][a-z]{2}-[A-Z]{2}' enabled='true' />
+    <methodLineFilter name='err.toString' pattern='\berr\.toString\b' enabled='true' />
+    <methodLineFilter name='path\.join\(' pattern='path\.join\(' description='Ignore joined paths (many false positives from &apos;join&apos; LSM)' enabled='true' />
+    <methodLineFilter name='JSON.parse' pattern='JSON\.parse' description='JSON Parsing - Most likely a false positive' category='Aggressive' enabled='false' />
+    <methodLineFilter name='userAgent.indexOf' pattern='userAgent\.indexOf' enabled='true' />
+    <methodLineFilter name='Array Concatenation' pattern='\]\.concat|[Aa]rray[\w\d]*\.concat|concat\(\[' description='Ignore array concatenations' category='Aggressive' enabled='false' />
+    <methodLineFilter name='toLocaleDateString([&apos;locale&apos;, ...' pattern='toLocaleDateString\(\[["&apos;]\w+' enabled='true' />
+    <staticFileLineFilter name='css and html methods' pattern='(?i)\w+\.(html|css)\s*\(' description='Filter javascript css and html methods, e.g. element.css(styles)' enabled='true' />
+    <profile hasgeneric='true' stringmethodfilter='true' localesensitive='true' stmterminator=';' strdelimiter='",&apos;' chardelimiter='",&apos;' linecomment='//' blockcomment='/*,*/' methodcall='paren' defresource='json' resources='json,js,po,properties,rc,resx,xml' strops=':,=,+=,==,!=,===,!==' concatchars='+,+=' arrayindexdelimiter='[,]' arrayinitializer=':' usealt='true' clientscript='true' serverscript='true' statementdelims=';{}' />
+    <resource extension='json' description='json resource file type' method='getString("[key]")' altmethod='getString("[key]")' />
+  </ruleset>
+</export>
